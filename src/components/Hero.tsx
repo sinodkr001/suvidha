@@ -50,7 +50,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="pt-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex items-center relative overflow-hidden">
+    <section className="pt-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex items-center relative overflow-hidden">
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -61,7 +61,7 @@ const Hero = () => {
 
       {/* Gradient Orbs */}
       <motion.div 
-        className="absolute top-1/4 left-1/4 w-96 h-96 bg-gradient-to-r from-orange-500 to-pink-500 rounded-full opacity-20 blur-3xl"
+        className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-r from-orange-500/20 to-pink-500/20 rounded-full blur-3xl"
         animate={{
           scale: [1, 1.2, 1],
           rotate: [0, 180, 360],
@@ -73,7 +73,7 @@ const Hero = () => {
         }}
       />
       <motion.div 
-        className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-gradient-to-r from-blue-500 to-purple-500 rounded-full opacity-20 blur-3xl"
+        className="absolute bottom-1/4 -right-48 w-80 h-80 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"
         animate={{
           scale: [1.2, 1, 1.2],
           rotate: [360, 180, 0],
@@ -85,7 +85,7 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-4">
         <motion.div 
           className="flex flex-col lg:flex-row items-center gap-16"
           variants={containerVariants}
@@ -95,18 +95,18 @@ const Hero = () => {
           {/* Left Side - Content */}
           <div className="lg:w-1/2 text-white">
             <motion.div 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 shadow-lg"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-orange-600/10 text-white px-6 py-3 rounded-full text-sm font-semibold mb-8 backdrop-blur-sm border border-orange-500/20"
               variants={itemVariants}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              <Sparkles className="w-4 h-4" />
+              <Sparkles className="w-4 h-4 text-orange-400" />
               POINT OF SALE (POS)
-              <Zap className="w-4 h-4" />
+              <Zap className="w-4 h-4 text-orange-400" />
             </motion.div>
             
             <motion.h1 
-              className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-8 leading-tight"
+              className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight"
               variants={itemVariants}
             >
               Build Your{' '}
@@ -141,7 +141,7 @@ const Hero = () => {
                   Suvidha POS
                 </motion.span>
                 <motion.div
-                  className="absolute -top-2 -right-2 w-4 h-4 bg-orange-400 rounded-full"
+                  className="absolute -top-2 -right-2 w-3 h-3 bg-orange-400 rounded-full"
                   animate={{
                     scale: [1, 1.5, 1],
                     opacity: [1, 0.5, 1],
@@ -155,7 +155,7 @@ const Hero = () => {
             </motion.h1>
             
             <motion.p 
-              className="text-xl md:text-2xl text-gray-300 mb-12 leading-relaxed max-w-2xl"
+              className="text-lg md:text-xl text-gray-400 mb-8 leading-relaxed max-w-2xl"
               variants={itemVariants}
             >
               Managing your whole business operation, Analyzing your performance and 
@@ -164,11 +164,11 @@ const Hero = () => {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6 items-start"
+              className="flex flex-col sm:flex-row gap-4 items-start"
               variants={itemVariants}
             >
               <motion.button 
-                className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 flex items-center gap-3 shadow-2xl hover:shadow-orange-500/25"
+                className="group bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 flex items-center gap-3 shadow-xl hover:shadow-orange-500/25"
                 whileHover={{ 
                   scale: 1.05,
                   boxShadow: "0 20px 40px rgba(251, 146, 60, 0.4)"
@@ -180,24 +180,20 @@ const Hero = () => {
                   animate={{ x: [0, 5, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity }}
                 >
-                  <ArrowRight className="w-6 h-6" />
+                  <ArrowRight className="w-5 h-5" />
                 </motion.div>
               </motion.button>
               
               <motion.button 
-                className="group border-2 border-white/30 backdrop-blur-sm text-white hover:bg-white hover:text-gray-900 px-10 py-5 rounded-full text-lg font-semibold transition-all duration-300 flex items-center gap-3"
-                whileHover={{ 
-                  scale: 1.05,
-                  backgroundColor: "rgba(255, 255, 255, 0.1)",
-                  borderColor: "rgba(255, 255, 255, 0.8)"
-                }}
+                className="group border border-white/20 backdrop-blur-sm text-white hover:bg-white/10 px-8 py-4 rounded-full text-base font-semibold transition-all duration-300 flex items-center gap-3"
+                whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <motion.div
                   whileHover={{ scale: 1.2, rotate: 360 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <Play className="w-6 h-6" />
+                  <Play className="w-5 h-5" />
                 </motion.div>
                 Watch Demo
               </motion.button>
@@ -205,41 +201,41 @@ const Hero = () => {
 
             {/* Stats */}
             <motion.div 
-              className="flex flex-wrap gap-8 mt-16 pt-8 border-t border-gray-700"
+              className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-gray-800"
               variants={itemVariants}
             >
               <div className="text-center">
                 <motion.div 
-                  className="text-3xl font-bold text-orange-400"
+                  className="text-2xl font-bold text-orange-400"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 2, duration: 0.5 }}
                 >
                   500+
                 </motion.div>
-                <div className="text-gray-400 text-sm">Happy Clients</div>
+                <div className="text-sm text-gray-500">Happy Clients</div>
               </div>
               <div className="text-center">
                 <motion.div 
-                  className="text-3xl font-bold text-orange-400"
+                  className="text-2xl font-bold text-orange-400"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 2.2, duration: 0.5 }}
                 >
                   24/7
                 </motion.div>
-                <div className="text-gray-400 text-sm">Support</div>
+                <div className="text-sm text-gray-500">Support</div>
               </div>
               <div className="text-center">
                 <motion.div 
-                  className="text-3xl font-bold text-orange-400"
+                  className="text-2xl font-bold text-orange-400"
                   initial={{ opacity: 0, scale: 0 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 2.4, duration: 0.5 }}
                 >
                   99.9%
                 </motion.div>
-                <div className="text-gray-400 text-sm">Uptime</div>
+                <div className="text-sm text-gray-500">Uptime</div>
               </div>
             </motion.div>
           </div>
@@ -256,31 +252,51 @@ const Hero = () => {
                 whileHover={{ scale: 1.02 }}
                 transition={{ duration: 0.3 }}
               >
-                <img 
-                  src="/image.png" 
-                  alt="Suvidha POS System in Action" 
-                  className="w-full rounded-3xl shadow-2xl"
-                />
-                
-                {/* Overlay Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent rounded-3xl"></div>
-                
-                {/* Floating Badge */}
-                <motion.div
-                  className="absolute top-6 left-6 bg-white/90 backdrop-blur-sm px-4 py-2 rounded-full shadow-lg"
-                  variants={floatingVariants}
-                  animate="animate"
-                >
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    <span className="text-sm font-semibold text-gray-800">Live System</span>
-                  </div>
-                </motion.div>
+                <div className="relative">
+                  <img 
+                    src="/image.png" 
+                    alt="Suvidha POS System in Action" 
+                    className="w-full rounded-3xl shadow-2xl"
+                  />
+                  
+                  {/* Glass Morphism Effect */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/20 to-transparent backdrop-blur-[1px] rounded-3xl"></div>
+                  
+                  {/* Premium Badge */}
+                  <motion.div
+                    className="absolute top-6 right-6 bg-gradient-to-r from-orange-500 to-pink-500 px-4 py-2 rounded-full shadow-lg backdrop-blur-sm"
+                    variants={floatingVariants}
+                    animate="animate"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Sparkles className="w-4 h-4 text-white" />
+                      <span className="text-sm font-bold text-white">Premium Solution</span>
+                    </div>
+                  </motion.div>
+
+                  {/* Stats Badge */}
+                  <motion.div
+                    className="absolute bottom-6 left-6 bg-white/10 backdrop-blur-sm px-6 py-3 rounded-2xl shadow-lg"
+                    variants={floatingVariants}
+                    animate="animate"
+                  >
+                    <div className="flex items-center gap-6">
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-white">500+</div>
+                        <div className="text-xs text-gray-300">Happy Clients</div>
+                      </div>
+                      <div className="text-center">
+                        <div className="text-2xl font-bold text-white">24/7</div>
+                        <div className="text-xs text-gray-300">Support</div>
+                      </div>
+                    </div>
+                  </motion.div>
+                </div>
               </motion.div>
 
               {/* Decorative Elements */}
               <motion.div 
-                className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-r from-orange-400 to-pink-500 rounded-full opacity-30 blur-xl"
+                className="absolute -top-8 -right-8 w-24 h-24 bg-gradient-to-r from-orange-400/30 to-pink-500/30 rounded-full blur-xl"
                 animate={{
                   scale: [1, 1.3, 1],
                   opacity: [0.3, 0.6, 0.3],
@@ -293,7 +309,7 @@ const Hero = () => {
               />
               
               <motion.div 
-                className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-r from-blue-400 to-purple-500 rounded-full opacity-25 blur-xl"
+                className="absolute -bottom-8 -left-8 w-32 h-32 bg-gradient-to-r from-blue-400/25 to-purple-500/25 rounded-full blur-xl"
                 animate={{
                   scale: [1.2, 1, 1.2],
                   opacity: [0.25, 0.5, 0.25],
@@ -304,63 +320,10 @@ const Hero = () => {
                   ease: "easeInOut"
                 }}
               />
-
-              {/* Floating Icons */}
-              <motion.div
-                className="absolute top-1/4 -right-12 bg-white/10 backdrop-blur-sm p-3 rounded-full"
-                animate={{
-                  y: [-10, 10, -10],
-                  rotate: [0, 180, 360],
-                }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Zap className="w-6 h-6 text-orange-400" />
-              </motion.div>
-
-              <motion.div
-                className="absolute bottom-1/3 -left-12 bg-white/10 backdrop-blur-sm p-3 rounded-full"
-                animate={{
-                  y: [10, -10, 10],
-                  rotate: [360, 180, 0],
-                }}
-                transition={{
-                  duration: 7,
-                  repeat: Infinity,
-                  ease: "easeInOut"
-                }}
-              >
-                <Sparkles className="w-6 h-6 text-blue-400" />
-              </motion.div>
             </motion.div>
           </div>
         </motion.div>
       </div>
-
-      {/* Floating Particles */}
-      {[...Array(6)].map((_, i) => (
-        <motion.div
-          key={i}
-          className="absolute w-2 h-2 bg-orange-400 rounded-full opacity-60"
-          style={{
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-          }}
-          animate={{
-            y: [-20, 20, -20],
-            opacity: [0.6, 1, 0.6],
-          }}
-          transition={{
-            duration: 3 + Math.random() * 2,
-            repeat: Infinity,
-            delay: Math.random() * 2,
-            ease: "easeInOut"
-          }}
-        />
-      ))}
     </section>
   );
 };
