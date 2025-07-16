@@ -17,13 +17,15 @@ const Header = () => {
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
     }`}>
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 sm:px-12 lg:px-24">
         <nav className="flex items-center justify-between py-4">
           {/* Logo */}
           <div className="flex items-center space-x-3">
-            <div className="w-12 h-12 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg transform hover:scale-110 transition-transform duration-300">
-              <ShoppingBag className="w-6 h-6 text-white" />
-            </div>
+            <img
+              src="/oldlogo (1).png"
+              alt="Suvidha POS Logo"
+              className="w-12 h-12 rounded-xl object-cover shadow-lg transform hover:scale-110 transition-transform duration-300"
+            />
             <h3 className="text-2xl font-bold">
               <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">Suvidha</span>{' '}
               <span className={isScrolled ? 'text-gray-800' : 'text-white'}>POS</span>
@@ -66,8 +68,8 @@ const Header = () => {
         </nav>
 
         {/* Mobile Menu */}
-        <div className={`lg:hidden ${isMenuOpen ? 'block' : 'hidden'}`}>
-          <div className="py-4 space-y-4">
+        {isMenuOpen && (
+          <div className="lg:hidden absolute left-0 top-full w-full bg-white/80 backdrop-blur-lg shadow-lg z-50 px-6 py-4 space-y-4">
             <a href="#home" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               Home
             </a>
@@ -87,7 +89,7 @@ const Header = () => {
               GET STARTED
             </button>
           </div>
-        </div>
+        )}
       </div>
     </header>
   );

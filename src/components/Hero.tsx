@@ -50,7 +50,7 @@ const Hero = () => {
   };
 
   return (
-    <section className="pt-20 bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex items-center relative overflow-hidden">
+    <section className="pt-10 bg-gradient-to-br from-gray-900 via-gray-800 to-black min-h-screen flex items-center relative overflow-hidden">
       {/* Animated Background Grid */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute inset-0" style={{
@@ -85,7 +85,7 @@ const Hero = () => {
         }}
       />
 
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 sm:px-12 lg:px-24">
         <motion.div 
           className="flex flex-col lg:flex-row items-center gap-16"
           variants={containerVariants}
@@ -200,7 +200,7 @@ const Hero = () => {
             </motion.div>
 
             {/* Stats */}
-            <motion.div 
+            {/* <motion.div 
               className="flex flex-wrap gap-8 mt-12 pt-8 border-t border-gray-800"
               variants={itemVariants}
             >
@@ -237,7 +237,7 @@ const Hero = () => {
                 </motion.div>
                 <div className="text-sm text-gray-500">Uptime</div>
               </div>
-            </motion.div>
+            </motion.div> */}
           </div>
           
           {/* Right Side - Image */}
@@ -256,7 +256,7 @@ const Hero = () => {
                   <img 
                     src="/image.png" 
                     alt="Suvidha POS System in Action" 
-                    className="w-full rounded-3xl shadow-2xl"
+                    className="w-full h-[500px] rounded-3xl shadow-2xl"
                   />
                   
                   {/* Glass Morphism Effect */}

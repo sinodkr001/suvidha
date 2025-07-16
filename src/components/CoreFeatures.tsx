@@ -37,7 +37,7 @@ const features = [
 const CoreFeatures = () => {
   return (
     <section className="py-20 bg-gray-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 sm:px-12 lg:px-24">
         <div className="text-center mb-16">
           <div className="bg-orange-100 text-orange-600 px-6 py-3 rounded-full text-sm font-semibold mb-6 inline-block">
             POS FEATURES

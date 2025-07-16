@@ -4,7 +4,7 @@ import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Clock, Che
 const Footer = () => {
   return (
     <footer className="bg-red-50 py-16">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 sm:px-12 lg:px-24">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">

@@ -43,7 +43,7 @@ const keyFeatures = [
 const KeyFeatures = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-orange-50">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 sm:px-12 lg:px-24">
         <div className="text-center mb-16">
           <span className="bg-orange-100 text-orange-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 inline-block">
             PREMIUM FEATURES

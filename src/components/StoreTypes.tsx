@@ -33,7 +33,7 @@ const StoreTypes = () => {
         }}></div>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
+      <div className="container mx-auto px-6 sm:px-12 lg:px-24 relative z-10">
         <div className="text-center mb-16">
           <div className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full text-sm font-semibold mb-6 inline-block shadow-lg">
             RETAIL STORE SOLUTIONS

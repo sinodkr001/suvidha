@@ -31,7 +31,7 @@ const steps = [
 const HowItWorks = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 to-indigo-100">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-6 sm:px-12 lg:px-24">
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
             How it works?
