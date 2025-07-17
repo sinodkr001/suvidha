@@ -6,25 +6,25 @@ const steps = [
     icon: QrCode,
     title: "1. Scan QR code to order",
     description: "Quick and easy access to our digital menu",
-    image: "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "/scan-new.png"
   },
   {
     icon: ShoppingCart,
     title: "2. Order your favourite items",
     description: "Browse and select from our extensive menu",
-    image: "https://images.pexels.com/photos/4393021/pexels-photo-4393021.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "/order-new.png"
   },
   {
     icon: ChefHat,
     title: "3. Food will be prepared",
     description: "Our chefs prepare your order with care",
-    image: "https://images.pexels.com/photos/2814602/pexels-photo-2814602.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "/process-new.png"
   },
   {
     icon: Truck,
     title: "4. Food will be delivered to you",
     description: "Fast and reliable delivery to your location",
-    image: "https://images.pexels.com/photos/4391470/pexels-photo-4391470.jpeg?auto=compress&cs=tinysrgb&w=400"
+    image: "/delivery-new.png"
   }
 ];
 
@@ -41,16 +41,12 @@ const HowItWorks = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {steps.map((step, index) => (
             <div key={index} className="text-center group">
-              <div className="mb-8 overflow-hidden rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+              <div className="mb-8 overflow-hidden rounded-2xl transition-all duration-300">
                 <img 
                   src={step.image}
                   alt={step.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-60 object-cover group-hover:scale-110 transition-transform duration-500"
                 />
-              </div>
-              
-              <div className="bg-blue-100 p-4 rounded-full inline-block mb-6 group-hover:scale-110 transition-transform duration-300">
-                <step.icon className="w-8 h-8 text-blue-600" />
               </div>
               
               <h3 className="text-xl font-bold text-blue-600 mb-4">

@@ -5,38 +5,38 @@ const keyFeatures = [
   {
     icon: ShoppingBag,
     title: "Takeaway & Delivery",
-    description: "Customers can browse the digital menu, order items, and pick it up from the destination on their convenient time slot. Delivery fencing range can be set up on schedule timings.",
-    image: "https://images.pexels.com/photos/6169668/pexels-photo-6169668.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    description: "Customers can browse the digital menu, order items, and pick it up from the destination on their convenient time slot. Delivery fencing range can be set up on schedule timings. Know at what time the restaurant is able to take orders so that customers can choose from: unserviceable, closed and open to pick up their order.Customers can browse the digital menu, order items, and pick it up from the destination on their convenient time slot. Delivery fencing range can be set up on schedule timings.",
+    image: "/takeaway.png"
   },
   {
     icon: Users2,
     title: "Waiter Orders",
-    description: "Waiters can take orders both in online and offline mode. These orders get synced with Suvidha POS as soon as the application gets a stable internet connection.",
-    image: "https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    description: "Waiters can take orders both in online and offline mode. These orders get synced with Suvidha POS as soon as the application gets a stable internet connection. Waiters can modify orders and menu items by adding, removing, and altering the variables. They can cover order level discounts, extra charges, and many other item operations. Besides, order operations like recall orders, printing KOTs, settling and splitting bills can be sorted. It gives the live status of the dine-in area and order queue.Waiters can take orders both in online and offline mode. These orders get synced with Suvidha POS as soon as the application gets a stable internet connection.",
+    image: "/waiters.png"
   },
   {
     icon: Package,
     title: "Inventory",
-    description: "Inventory management systems help food businesses to keep track of their stocks levels which reduces overstocking and wastages.",
-    image: "https://images.pexels.com/photos/7679863/pexels-photo-7679863.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    description: "Inv45% of the full service restaurants failed to grow in profits without food management effectively. Inventory management systems help food businesses to keep track of their stocks levels which reduces overstocking and wastages. This system with real time data inventory levels, helps them to make more informed decisions about ordering and stocking food items.entory management systems help food businesses to keep track of their stocks levels which reduces overstocking and wastages.",
+    image: "/inventory.png"
   },
   {
     icon: CreditCard,
     title: "Payment Support",
-    description: "A strong payment gateway is integrated, so the customer pays online. The payment is credited to your wallet immediately.",
-    image: "https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    description: "A stA strong payment gateway is integrated, so the customer pays online. The payment is credited to your wallet immediately. This guarantees the safety and protection of you and your customers at all times.rong payment gateway is integrated, so the customer pays online. The payment is credited to your wallet immediately.",
+    image: "/payment.png"
   },
   {
     icon: RotateCcw,
     title: "Turn Table Faster",
-    description: "Customers can scan QR code to view the menu, place orders and pay bills from their table smoother and faster. Thus the table turnover is increased by 40%.",
-    image: "https://images.pexels.com/photos/2788792/pexels-photo-2788792.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    description: "CCustomers can scan QR code to view the menu, place orders and pay bills from their table smoother and faster. Thus the table turnover is increased by 40% which helps to generate more revenue.ustomers can scan QR code to view the menu, place orders and pay bills from their table smoother and faster. Thus the table turnover is increased by 40%.",
+    image: "/turn-table-faster.png"
   },
   {
     icon: QrCode,
     title: "Scan & Order",
-    description: "Customers scan the QR code with their phone camera to access the food digital menu without downloading any app.",
-    image: "https://images.pexels.com/photos/8467280/pexels-photo-8467280.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+    description: "CuCustomers scan the QR code with their phone camera to access the food digital menu without downloading any app. Then the customers can place their order and pay instantly in a few clicks and enjoy their food delivered directly to their table.stomers scan the QR code with their phone camera to access the food digital menu without downloading any app.",
+    image: "/scan-order.png"
   }
 ];
 
@@ -77,13 +77,13 @@ const KeyFeatures = () => {
               </div>
               
               <div className="lg:w-1/2 group">
-                <div className="relative overflow-hidden rounded-3xl shadow-2xl">
+                <div className="relative overflow-hidden rounded-3xl">
                   <img 
                     src={feature.image}
                     alt={feature.title}
-                    className="w-full transform group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-96 object-contain"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 transition-opacity duration-500"></div>
                 </div>
               </div>
             </div>
