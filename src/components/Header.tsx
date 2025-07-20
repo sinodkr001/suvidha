@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ShoppingBag } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,21 +35,21 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
-            <a href="#home" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
+            <Link to="/" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               Home
-            </a>
+            </Link>
             <a href="#outlet-types" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               Outlet Types
             </a>
-            <a href="#about" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
+            <Link to="/about" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               About Us
-            </a>
+            </Link>
             <a href="#faq" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               FAQ
             </a>
-            <a href="#contact" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
+            <Link to="/contact" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               Contact Us
-            </a>
+            </Link>
           </div>
 
           {/* CTA Button */}
@@ -70,15 +71,15 @@ const Header = () => {
         {/* Mobile Menu */}
         {isMenuOpen && (
           <div className="lg:hidden absolute left-0 top-full w-full bg-white/80 backdrop-blur-lg shadow-lg z-50 px-6 py-4 space-y-4">
-            <a href="#home" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
+            <Link to="/" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               Home
-            </a>
+            </Link>
             <a href="#outlet-types" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               Outlet Types
             </a>
-            <a href="#about" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
+            <Link to="/about" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               About Us
-            </a>
+            </Link>
             <a href="#faq" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               FAQ
             </a>
