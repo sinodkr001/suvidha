@@ -20,7 +20,7 @@ const CTA = () => {
             <img 
               src="/mobile_app (1).jpg"
               alt="Mobile Dashboard"
-              className="w-full h-60 max-w-sm mx-auto rounded-2xl shadow-2xl"
+              className="w-full h-80 max-w-sm mx-auto rounded-2xl shadow-2xl"
             />
           </div>
         </div>
