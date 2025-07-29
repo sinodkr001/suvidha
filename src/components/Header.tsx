@@ -38,15 +38,15 @@ const Header = () => {
             <Link to="/" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               Home
             </Link>
-            <a href="#outlet-types" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
+            <Link to="/outlet-types" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               Outlet Types
-            </a>
+            </Link>
             <Link to="/about" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               About Us
             </Link>
-            <a href="#faq" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
+            <Link to="/faq" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               FAQ
-            </a>
+            </Link>
             <Link to="/contact" className={`${isScrolled ? 'text-gray-700' : 'text-white'} hover:text-orange-500 transition-colors font-medium`}>
               Contact Us
             </Link>
@@ -74,15 +74,15 @@ const Header = () => {
             <Link to="/" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               Home
             </Link>
-            <a href="#outlet-types" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
+            <Link to="/outlet-types" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               Outlet Types
-            </a>
+            </Link>
             <Link to="/about" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               About Us
             </Link>
-            <a href="#faq" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
+            <Link to="/faq" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               FAQ
-            </a>
+            </Link>
             <a href="#contact" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               Contact Us
             </a>

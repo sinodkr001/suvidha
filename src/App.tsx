@@ -15,6 +15,10 @@ import Footer from './components/Footer';
 import ChatWidget from './components/ChatWidget';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
+import TermsAndConditions from './components/TermsAndConditions';
+import PrivacyPolicy from './components/PrivacyPolicy';
+import FAQ from './components/FAQ';
+import OutletTypes from './components/OutletTypes';
 
 function HomePage() {
   return (
@@ -42,6 +46,10 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/contact" element={<ContactUs />} />
+          <Route path="/terms" element={<TermsAndConditions />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/outlet-types" element={<OutletTypes />} />
         </Routes>
         <Footer />
         <ChatWidget />

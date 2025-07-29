@@ -52,13 +52,25 @@ const Footer = () => {
                 <Check className="w-4 h-4 text-orange-500 mr-3" />
                 About Us
               </a>
-              <a href="#" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+              <a href="/faq" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
                 <Check className="w-4 h-4 text-orange-500 mr-3" />
                 FAQ
+              </a>
+              <a href="/outlet-types" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+                <Check className="w-4 h-4 text-orange-500 mr-3" />
+                Outlet Types
               </a>
               <a href="#" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
                 <Check className="w-4 h-4 text-orange-500 mr-3" />
                 Contact Us
+              </a>
+              <a href="/terms" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+                <Check className="w-4 h-4 text-orange-500 mr-3" />
+                Terms & Conditions
+              </a>
+              <a href="/privacy" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+                <Check className="w-4 h-4 text-orange-500 mr-3" />
+                Privacy Policy
               </a>
             </div>
           </div>
