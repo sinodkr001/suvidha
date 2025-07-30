@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronDown, ChevronUp } from 'lucide-react';
+import { ChevronDown, ChevronUp, Search, Phone, Mail, MessageCircle } from 'lucide-react';
 
 interface FAQItemProps {
   question: string;
@@ -9,32 +9,37 @@ interface FAQItemProps {
 }
 
 const FAQItem: React.FC<FAQItemProps> = ({ question, answer, isOpen, onToggle }) => (
-  <div className="border-b border-gray-200 last:border-0">
+  <div className={`bg-white rounded-2xl p-6 transition-all duration-300 ${isOpen ? 'shadow-lg' : 'hover:shadow-md'}`}>
     <button
-      className="w-full py-6 text-left focus:outline-none"
+      className="w-full text-left focus:outline-none group"
       onClick={onToggle}
     >
       <div className="flex items-center justify-between">
-        <h3 className="text-lg font-semibold text-gray-900">{question}</h3>
-        <span className="ml-6 flex-shrink-0">
-          {isOpen ? (
-            <ChevronUp className="h-6 w-6 text-blue-600" />
-          ) : (
-            <ChevronDown className="h-6 w-6 text-gray-400" />
-          )}
-        </span>
+        <div className="flex items-center space-x-4">
+          <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isOpen ? 'bg-blue-600' : 'bg-blue-100 group-hover:bg-blue-200'}`}>
+            {isOpen ? (
+              <ChevronUp className={`h-5 w-5 ${isOpen ? 'text-white' : 'text-blue-600'}`} />
+            ) : (
+              <ChevronDown className={`h-5 w-5 ${isOpen ? 'text-white' : 'text-blue-600'}`} />
+            )}
+          </div>
+          <h3 className={`text-lg font-semibold transition-colors duration-300 ${isOpen ? 'text-blue-600' : 'text-gray-900 group-hover:text-blue-600'}`}>
+            {question}
+          </h3>
+        </div>
       </div>
     </button>
-    {isOpen && (
-      <div className="pb-6">
+    <div className={`overflow-hidden transition-all duration-300 ${isOpen ? 'mt-4 max-h-96' : 'max-h-0'}`}>
+      <div className="pl-12">
         <p className="text-gray-600 leading-relaxed">{answer}</p>
       </div>
-    )}
+    </div>
   </div>
 );
 
 const FAQ = () => {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const faqData = [
     {
@@ -87,6 +92,11 @@ const FAQ = () => {
     }
   ];
 
+  const filteredFAQs = faqData.filter(faq =>
+    faq.question.toLowerCase().includes(searchQuery.toLowerCase()) ||
+    faq.answer.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
   return (
     <div className="font-[Poppins]">
       {/* Hero Banner */}
@@ -97,7 +107,7 @@ const FAQ = () => {
             alt="Customer Support" 
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0"></div>
+          <div className="absolute inset-0 bg-black/50"></div>
         </div>
         <div className="relative h-full max-w-7xl mx-auto px-4 flex flex-col justify-center items-center text-center">
           <span className="text-white bg-blue-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
@@ -113,37 +123,48 @@ const FAQ = () => {
       </div>
 
       {/* Main Content */}
-      <div className="bg-white py-20">
-        <div className="max-w-4xl mx-auto px-4">
-          {/* Search Bar - Future Enhancement */}
-          <div className="mb-12">
-            <div className="bg-blue-50 p-8 rounded-3xl text-center">
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-                Have a different question?
-              </h2>
-              <p className="text-gray-600 mb-6">
-                Can't find the answer you're looking for? Contact our support team.
-              </p>
-              <div className="flex justify-center gap-4">
-                <a 
-                  href="/contact" 
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                  Contact Support
-                </a>
-                <a 
-                  href="tel:+918271718844" 
-                  className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-full shadow-sm text-blue-600 bg-blue-50 hover:bg-blue-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
-                >
-                  Call Us
-                </a>
+      <div className="bg-gradient-to-b from-white to-blue-50/30 py-20">
+        <div className="max-w-5xl mx-auto px-4">
+          {/* Search Section */}
+          <div className="mb-16">
+            <div className="max-w-2xl mx-auto">
+              <div className="relative">
+                <input
+                  type="text"
+                  placeholder="Search your question..."
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-6 py-4 pl-14 pr-12 text-lg rounded-2xl border-2 border-blue-100 focus:border-blue-400 focus:ring focus:ring-blue-200 focus:ring-opacity-50 transition-all duration-300 shadow-sm"
+                />
+                <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-blue-400 h-6 w-6" />
               </div>
             </div>
           </div>
 
+          {/* FAQ Categories */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            {[
+              { icon: MessageCircle, title: "General Questions", count: "5+ articles" },
+              { icon: Phone, title: "Technical Support", count: "24/7 available" },
+              { icon: Mail, title: "Sales Support", count: "Quick response" }
+            ].map((category, index) => (
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 border border-gray-100">
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full bg-blue-100 flex items-center justify-center">
+                    <category.icon className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-gray-900">{category.title}</h3>
+                    <p className="text-sm text-gray-500">{category.count}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
           {/* FAQ List */}
-          <div className="divide-y divide-gray-200 rounded-3xl bg-white shadow-lg border border-gray-100">
-            {faqData.map((faq, index) => (
+          <div className="space-y-4">
+            {filteredFAQs.map((faq, index) => (
               <FAQItem
                 key={index}
                 question={faq.question}
@@ -154,27 +175,32 @@ const FAQ = () => {
             ))}
           </div>
 
-          {/* Additional Support Section */}
-          <div className="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-8 rounded-3xl shadow-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Technical Support</h3>
-              <p className="text-gray-600 mb-6">
-                Need technical assistance? Our support team is available 24/7 to help you.
-              </p>
-              <p className="text-gray-800 font-semibold">
-                Email: support@suvidhapos.in<br />
-                Phone: (+91) 82-7171-8844
-              </p>
-            </div>
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 p-8 rounded-3xl shadow-lg">
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Sales Inquiries</h3>
-              <p className="text-gray-600 mb-6">
-                Interested in Suvidha POS? Contact our sales team for a demo.
-              </p>
-              <p className="text-gray-800 font-semibold">
-                Email: sales@suvidhapos.in<br />
-                Phone: (+91) 82-7171-8844
-              </p>
+          {/* Contact Support Section */}
+          <div className="mt-20">
+            <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center relative overflow-hidden">
+              <div className="absolute inset-0 opacity-10 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.4%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')]"></div>
+              <div className="relative z-10">
+                <h2 className="text-3xl font-bold text-white mb-6">
+                  Still have questions?
+                </h2>
+                <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+                  Our support team is here to help you 24/7. Reach out to us through any of these channels.
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
+                  <a href="/contact" className="flex items-center justify-center px-6 py-4 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-sm transition-all duration-300 group">
+                    <MessageCircle className="h-6 w-6 text-white mr-3" />
+                    <span className="text-white font-semibold">Live Chat</span>
+                  </a>
+                  <a href="mailto:support@suvidhapos.in" className="flex items-center justify-center px-6 py-4 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-sm transition-all duration-300 group">
+                    <Mail className="h-6 w-6 text-white mr-3" />
+                    <span className="text-white font-semibold">Email Us</span>
+                  </a>
+                  <a href="tel:+918271718844" className="flex items-center justify-center px-6 py-4 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-sm transition-all duration-300 group">
+                    <Phone className="h-6 w-6 text-white mr-3" />
+                    <span className="text-white font-semibold">Call Us</span>
+                  </a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -183,4 +209,4 @@ const FAQ = () => {
   );
 };
 
-export default FAQ; 
+export default FAQ;
