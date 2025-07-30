@@ -193,7 +193,7 @@ const OutletTypes = () => {
     {
       title: "Tea House",
       icon: "🫖",
-      image: "/public/process-new.png",
+      image: "/process-new.png",
       features: [
         "Tea variety management",
         "Temperature control",
