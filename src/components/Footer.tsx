@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Facebook, Twitter, Instagram, Linkedin, MapPin, Phone, Mail, Clock, Check } from 'lucide-react';
 
 const Footer = () => {
   return (
     <footer className="bg-red-50 py-16">
       <div className="container mx-auto px-6 sm:px-12 lg:px-24">
-        <div className="grid grid-cols-1 lg:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           {/* Company Info */}
           <div className="lg:col-span-1">
             <div className="flex items-center space-x-3 mb-6">
@@ -25,16 +26,16 @@ const Footer = () => {
             </p>
             
             <div className="flex space-x-4">
-              <a href="#" className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-colors">
+              <a href="https://www.facebook.com/SuvidhaPos?rdid=H0sq5vaLb4fsZ8bM&share_url=https%3A%2F%2Fwww.facebook.com%2Fshare%2F1B8BMuYE8v%2F#" className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-colors">
                 <Facebook className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-colors">
+              <a href="https://x.com/SuvidhaPos" className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-colors">
                 <Twitter className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-colors">
+              <a href="https://www.instagram.com/suvidhapos/?igsh=MXh6N3pnbTh2cDFqag%3D%3D#" className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-colors">
                 <Instagram className="w-5 h-5" />
               </a>
-              <a href="#" className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-colors">
+              <a href="https://www.linkedin.com/authwall?trk=bf&trkInfo=AQFyd9A39QuUigAAAZhjg-UIXAl8M3QzOW8Nenhwb12_SsA6T0gsV-pMHgTOKZJkeRbrFWmgGXMl92T464etRWCJmwcJef599mhPn3ke3Sew60-reEilGnZoPktl_-T0HXdNhto=&original_referer=&sessionRedirect=https%3A%2F%2Fwww.linkedin.com%2Fin%2Fsuvidha-pos-71a3a52b8%2F%3Futm_source%3Dshare%26utm_campaign%3Dshare_via%26utm_content%3Dprofile%26utm_medium%3Dandroid_app" className="bg-orange-500 hover:bg-orange-600 text-white p-3 rounded-full transition-colors">
                 <Linkedin className="w-5 h-5" />
               </a>
             </div>
@@ -44,34 +45,26 @@ const Footer = () => {
           <div>
             <h4 className="text-xl font-bold text-gray-900 mb-6">Quick Links</h4>
             <div className="space-y-3">
-              <a href="#" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+              <Link to="/" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
                 <Check className="w-4 h-4 text-orange-500 mr-3" />
                 Home
-              </a>
-              <a href="#" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+              </Link>
+              <Link to="/about" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
                 <Check className="w-4 h-4 text-orange-500 mr-3" />
                 About Us
-              </a>
-              <a href="/faq" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+              </Link>
+              <Link to="/faq" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
                 <Check className="w-4 h-4 text-orange-500 mr-3" />
                 FAQ
-              </a>
-              <a href="/outlet-types" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+              </Link>
+              <Link to="/outlet-types" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
                 <Check className="w-4 h-4 text-orange-500 mr-3" />
                 Outlet Types
-              </a>
-              <a href="#" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+              </Link>
+              <Link to="/contact" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
                 <Check className="w-4 h-4 text-orange-500 mr-3" />
                 Contact Us
-              </a>
-              <a href="/terms" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
-                <Check className="w-4 h-4 text-orange-500 mr-3" />
-                Terms & Conditions
-              </a>
-              <a href="/privacy" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
-                <Check className="w-4 h-4 text-orange-500 mr-3" />
-                Privacy Policy
-              </a>
+              </Link>
             </div>
           </div>
 
@@ -100,6 +93,21 @@ const Footer = () => {
                 <Clock className="w-5 h-5 text-orange-500" />
                 <p className="text-gray-600">24/7 Hours Service</p>
               </div>
+            </div>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h4 className="text-xl font-bold text-gray-900 mb-6">Legal</h4>
+            <div className="space-y-3">
+              <Link to="/terms" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+                <Check className="w-4 h-4 text-orange-500 mr-3" />
+                Terms & Conditions
+              </Link>
+              <Link to="/privacy" className="flex items-center text-gray-600 hover:text-orange-500 transition-colors">
+                <Check className="w-4 h-4 text-orange-500 mr-3" />
+                Privacy Policy
+              </Link>
             </div>
           </div>
         </div>

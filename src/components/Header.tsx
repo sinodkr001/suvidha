@@ -83,9 +83,9 @@ const Header = () => {
             <Link to="/faq" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               FAQ
             </Link>
-            <a href="#contact" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
+            <Link to="/contact" className="block text-gray-700 hover:text-orange-500 transition-colors font-medium">
               Contact Us
-            </a>
+            </Link>
             <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25">
               GET STARTED
             </button>

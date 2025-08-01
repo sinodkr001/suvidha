@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { ChevronDown, ChevronUp, Search, Phone, Mail, MessageCircle } from 'lucide-react';
 
 interface FAQItemProps {
@@ -187,10 +188,10 @@ const FAQ = () => {
                   Our support team is here to help you 24/7. Reach out to us through any of these channels.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto">
-                  <a href="/contact" className="flex items-center justify-center px-6 py-4 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-sm transition-all duration-300 group">
+                  <Link to="/contact" className="flex items-center justify-center px-6 py-4 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-sm transition-all duration-300 group">
                     <MessageCircle className="h-6 w-6 text-white mr-3" />
                     <span className="text-white font-semibold">Live Chat</span>
-                  </a>
+                  </Link>
                   <a href="mailto:support@suvidhapos.in" className="flex items-center justify-center px-6 py-4 bg-white/10 hover:bg-white/20 rounded-2xl backdrop-blur-sm transition-all duration-300 group">
                     <Mail className="h-6 w-6 text-white mr-3" />
                     <span className="text-white font-semibold">Email Us</span>

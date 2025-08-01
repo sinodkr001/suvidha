@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { Check } from 'lucide-react';
 
 // Premium outlet type images
@@ -560,12 +561,12 @@ const OutletTypes = () => {
 
                 {/* Call to Action */}
                 <div className="px-8 pb-8">
-                  <a 
-                    href="/contact" 
+                  <Link 
+                    to="/contact" 
                     className="block w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-center rounded-2xl font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
                   >
                     Learn More
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -625,20 +626,20 @@ const OutletTypes = () => {
             <p className="text-xl mb-8 text-white/90">
               Get started with Suvidha POS today and experience the difference.
             </p>
-            <div className="flex justify-center gap-4">
-              <a 
-                href="/contact" 
-                className="px-8 py-4 bg-white text-blue-600 rounded-full font-bold hover:bg-blue-50 transition-colors duration-300"
-              >
-                Contact Sales
-              </a>
-              <a 
-                href="/demo" 
-                className="px-8 py-4 bg-blue-500 text-white rounded-full font-bold hover:bg-blue-400 transition-colors duration-300"
-              >
-                Request Demo
-              </a>
-            </div>
+                         <div className="flex justify-center gap-4">
+               <Link 
+                 to="/contact" 
+                 className="px-8 py-4 bg-white text-blue-600 rounded-full font-bold hover:bg-blue-50 transition-colors duration-300"
+               >
+                 Contact Sales
+               </Link>
+               <Link 
+                 to="/contact" 
+                 className="px-8 py-4 bg-blue-500 text-white rounded-full font-bold hover:bg-blue-400 transition-colors duration-300"
+               >
+                 Request Demo
+               </Link>
+             </div>
           </div>
         </div>
       </div>
