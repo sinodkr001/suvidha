@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Check } from 'lucide-react';
+import { Check, Sparkles, Zap, ArrowRight } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { useScrollToTop } from '../hooks/useScrollToTop';
 
 // Premium outlet type images
 const outletImages = {
@@ -41,6 +43,9 @@ interface OutletFeature {
 }
 
 const OutletTypes = () => {
+  // Ensure page scrolls to top when component mounts
+  useScrollToTop();
+  
   // Map outlet types with their respective images
   const getOutletImage = (type: string): string => {
     const imageMap: { [key: string]: string } = {
@@ -94,7 +99,7 @@ const OutletTypes = () => {
     {
       title: "QSR (Quick Service Restaurant)",
       icon: "🍔",
-      image: "/public/scan-new.png",
+      image: "/quick.png",
       features: [
         "Fast order processing",
         "Self-service kiosk integration",
@@ -109,7 +114,7 @@ const OutletTypes = () => {
     {
       title: "Cafe",
       icon: "☕",
-      image: "/public/process-new.png",
+      image: "/cafe.png",
       features: [
         "Coffee shop menu management",
         "Quick service workflow",
@@ -124,7 +129,7 @@ const OutletTypes = () => {
     {
       title: "Bakery",
       icon: "🥖",
-      image: "/public/delivery-new.png",
+      image: "/idont.png",
       features: [
         "Pre-order management",
         "Production planning",
@@ -139,7 +144,7 @@ const OutletTypes = () => {
     {
       title: "Bar & Brewery",
       icon: "🍺",
-      image: "/scan-order.png",
+      image: "/bar.png",
       features: [
         "Bar tab management",
         "Happy hour pricing",
@@ -154,7 +159,7 @@ const OutletTypes = () => {
     {
       title: "Cloud Kitchens",
       icon: "🏭",
-      image: "/mobile_app.jpg",
+      image: "/cloud.png",
       features: [
         "Multiple brand management",
         "Delivery integration",
@@ -169,7 +174,7 @@ const OutletTypes = () => {
     {
       title: "Sweet Outlet",
       icon: "🍬",
-      image: "/inventory.png",
+      image: "/swt.png",
       features: [
         "Sweet item inventory",
         "Bulk order management",
@@ -184,7 +189,7 @@ const OutletTypes = () => {
     {
       title: "Ice-Cream & Dessert Outlet",
       icon: "🍨",
-      image: "/process-new.png",
+      image: "/sweet.png",
       features: [
         "Flavor combinations",
         "Topping management",
@@ -199,7 +204,7 @@ const OutletTypes = () => {
     {
       title: "Food Courts & Canteens",
       icon: "🏢",
-      image: "/scan-order.png",
+      image: "/food court.png",
       features: [
         "Multiple vendor management",
         "Central payment system",
@@ -214,7 +219,7 @@ const OutletTypes = () => {
     {
       title: "Delivery/Take-away",
       icon: "🛵",
-      image: "/public/delivery-new.png",
+      image: "/devilery.png",
       features: [
         "Online order management",
         "Delivery tracking",
@@ -229,7 +234,7 @@ const OutletTypes = () => {
     {
       title: "Pizzeria",
       icon: "🍕",
-      image: "/process-new.png",
+      image: "/pizair.png",
       features: [
         "Custom pizza builder",
         "Topping inventory",
@@ -259,7 +264,7 @@ const OutletTypes = () => {
     {
       title: "Tea House",
       icon: "🫖",
-      image: "/process-new.png",
+      image: "/tea house.png",
       features: [
         "Tea variety management",
         "Temperature control",
@@ -394,7 +399,7 @@ const OutletTypes = () => {
     {
       title: "Lounge Bar",
       icon: "🍹",
-      image: "/process-new.png",
+      image: "/bar brewary.png",
       features: [
         "Premium drink menu",
         "VIP area management",
@@ -486,62 +491,189 @@ const OutletTypes = () => {
   return (
     <div className="font-[Poppins]">
       {/* Hero Banner */}
-      <div className="relative h-[400px] w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-            alt="Business Types" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0"></div>
+      <div className="relative h-[500px] w-full overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-slate-900 to-black"></div>
+        
+        {/* Animated Background Grid */}
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '30px 30px'
+          }}></div>
         </div>
-        <div className="relative h-full max-w-7xl mx-auto px-4 flex flex-col justify-center items-center text-center">
-          <span className="text-white bg-blue-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
+
+        {/* Gradient Orbs */}
+        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-r from-orange-500/10 via-pink-500/10 to-purple-500/10 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-1/4 -right-48 w-80 h-80 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-[100px]"></div>
+
+        <div className="relative h-full max-w-7xl mx-auto px-4 flex flex-col justify-center items-center text-center z-10">
+          {/* Premium Badge */}
+          <motion.div 
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-pink-500/10 text-white px-8 py-4 rounded-2xl text-sm font-semibold mb-8 backdrop-blur-sm border border-orange-500/20 shadow-[0_0_15px_rgba(251,146,60,0.1)]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ 
+              scale: 1.05, 
+              boxShadow: "0 0 30px rgba(251,146,60,0.2)",
+              transition: { type: "spring", stiffness: 400, damping: 10 }
+            }}
+          >
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            >
+              <Sparkles className="w-5 h-5 text-orange-400" />
+            </motion.div>
             OUTLET TYPES
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            >
+              <Zap className="w-5 h-5 text-orange-400" />
+            </motion.div>
+          </motion.div>
+
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Solutions for Every{' '}
+            <motion.span 
+              className="relative inline-block"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 500, damping: 10 }}
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-orange-600">
+                Business
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
-            Solutions for Every Business
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-4xl leading-relaxed">
-            Discover how Suvidha POS adapts to your specific business needs
-          </p>
+              <motion.div
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 via-pink-500 to-orange-600 rounded-full"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ delay: 1, duration: 0.8 }}
+                viewport={{ once: true }}
+              />
+            </motion.span>
+          </motion.h1>
+
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-400 max-w-4xl leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            Discover how Suvidha POS adapts to your specific business needs with tailored solutions
+          </motion.p>
         </div>
       </div>
 
-      {/* Main Content */}
-      <div className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Main Content - Light Section */}
+      <div className="relative py-20 overflow-hidden">
+        {/* Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-pink-50"></div>
+        
+        {/* Animated Background Grid */}
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(251,146,60,0.3) 1px, transparent 0)`,
+            backgroundSize: '30px 30px'
+          }}></div>
+        </div>
+
+        {/* Gradient Orbs for Light Section */}
+        <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-r from-orange-500/5 via-pink-500/5 to-purple-500/5 rounded-full blur-[100px]"></div>
+        <div className="absolute bottom-1/4 -right-48 w-80 h-80 bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 rounded-full blur-[100px]"></div>
+
+        <div className="max-w-7xl mx-auto px-4 relative z-10">
           {/* Introduction */}
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              Tailored Solutions for Different Businesses
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <motion.h2 
+              className="text-4xl md:text-5xl font-bold text-gray-800 mb-6"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              Tailored Solutions for Different{' '}
+              <motion.span 
+                className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-pink-600 to-orange-700"
+                whileHover={{ scale: 1.05 }}
+                transition={{ type: "spring", stiffness: 500, damping: 10 }}
+              >
+                Businesses
+              </motion.span>
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              viewport={{ once: true }}
+            >
               Suvidha POS offers specialized features and functionality designed specifically for different types of businesses. Explore how our system can be customized for your industry.
-            </p>
-          </div>
+            </motion.p>
+          </motion.div>
 
           {/* Outlet Types Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {outletTypes.map((outlet, index) => (
-              <div 
+              <motion.div 
                 key={index}
-                className="group bg-white rounded-3xl shadow-xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-1"
+                className="group relative"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                                <motion.div 
+                  className="bg-white/80 backdrop-blur-sm border border-orange-100 rounded-3xl overflow-hidden hover:border-orange-300 transition-all duration-500 shadow-lg"
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -5,
+                    boxShadow: "0 20px 40px rgba(251,146,60,0.2)"
+                  }}
               >
                 {/* Outlet Image */}
                 <div className="relative h-64 overflow-hidden">
-                  <img 
+                    <motion.img 
                     src={outlet.image}
                     alt={outlet.title}
-                    className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500"
+                      className="w-full h-full object-cover"
+                      whileHover={{ scale: 1.1 }}
+                      transition={{ duration: 0.5 }}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex items-center space-x-4">
-                      <span className="text-5xl filter drop-shadow-lg">{outlet.icon}</span>
+                        <motion.span 
+                          className="text-5xl filter drop-shadow-lg"
+                          whileHover={{ scale: 1.1, rotate: 5 }}
+                          transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                        >
+                          {outlet.icon}
+                        </motion.span>
                       <div>
                         <h3 className="text-2xl font-bold text-white mb-2">{outlet.title}</h3>
-                        <div className="h-1 w-20 bg-blue-500 rounded-full transform origin-left group-hover:scale-x-150 transition-transform duration-500"></div>
+                          <motion.div 
+                            className="h-1 w-20 bg-gradient-to-r from-orange-500 to-orange-600 rounded-full"
+                            initial={{ scaleX: 0 }}
+                            whileInView={{ scaleX: 1 }}
+                            transition={{ delay: 0.5, duration: 0.8 }}
+                            viewport={{ once: true }}
+                          />
                       </div>
                     </div>
                   </div>
@@ -551,36 +683,98 @@ const OutletTypes = () => {
                 <div className="p-8">
                   <ul className="space-y-4">
                     {outlet.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start group/feature">
-                        <Check className="w-5 h-5 text-blue-500 mt-1 mr-4 flex-shrink-0 transform group-hover/feature:scale-110 transition-transform duration-300" />
-                        <span className="text-gray-700 group-hover/feature:text-blue-600 transition-colors duration-300">{feature}</span>
-                      </li>
+                        <motion.li 
+                          key={featureIndex} 
+                          className="flex items-start group/feature"
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ duration: 0.5, delay: featureIndex * 0.1 }}
+                          viewport={{ once: true }}
+                        >
+                          <motion.div
+                            className="w-5 h-5 text-orange-400 mt-1 mr-4 flex-shrink-0"
+                            whileHover={{ scale: 1.2, rotate: 180 }}
+                            transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                          >
+                            <Check className="w-full h-full" />
+                          </motion.div>
+                                                      <span className="text-gray-700 group-hover/feature:text-orange-600 transition-colors duration-300">{feature}</span>
+                        </motion.li>
                     ))}
                   </ul>
                 </div>
 
                 {/* Call to Action */}
                 <div className="px-8 pb-8">
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                    >
                   <Link 
                     to="/contact" 
-                    className="block w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-center rounded-2xl font-semibold transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                        className="block w-full py-4 px-6 bg-gradient-to-r from-orange-500 via-orange-600 to-pink-600 hover:from-orange-600 hover:via-orange-700 hover:to-pink-700 text-white text-center rounded-2xl font-semibold transition-all duration-300 shadow-lg hover:shadow-orange-500/25 flex items-center justify-center gap-2"
                   >
                     Learn More
+                        <ArrowRight className="w-5 h-5" />
                   </Link>
+                    </motion.div>
                 </div>
-              </div>
+                </motion.div>
+              </motion.div>
             ))}
           </div>
 
-          {/* Additional Features Section */}
-          <div className="mt-20">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Common Features Across All Businesses
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                While each business type has its unique features, all Suvidha POS solutions come with these essential capabilities:
-              </p>
+          {/* Additional Features Section - Dark Theme */}
+          <motion.div 
+            className="mt-20 relative py-20 -mx-4 px-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {/* Dark Background */}
+            <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-slate-900 to-black"></div>
+            
+            {/* Animated Background Grid */}
+            <div className="absolute inset-0 opacity-5">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+                backgroundSize: '30px 30px'
+              }}></div>
+            </div>
+
+            {/* Gradient Orbs for Dark Section */}
+            <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-r from-purple-500/10 via-pink-500/10 to-orange-500/10 rounded-full blur-[100px]"></div>
+            <div className="absolute bottom-1/4 -right-48 w-80 h-80 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-[100px]"></div>
+
+            <div className="relative z-10 max-w-7xl mx-auto">
+              <div className="text-center mb-12">
+                <motion.h2 
+                  className="text-3xl md:text-4xl font-bold text-white mb-6"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.2 }}
+                  viewport={{ once: true }}
+                >
+                  Common Features Across All{' '}
+                  <motion.span 
+                    className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-pink-500 to-orange-400"
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ type: "spring", stiffness: 500, damping: 10 }}
+                  >
+                    Businesses
+                  </motion.span>
+                </motion.h2>
+                <motion.p 
+                  className="text-xl text-gray-400 max-w-3xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                  viewport={{ once: true }}
+                >
+                  While each business type has its unique features, all Suvidha POS solutions come with these essential capabilities:
+                </motion.p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -606,41 +800,119 @@ const OutletTypes = () => {
                   description: "Manage your business from anywhere using our mobile app"
                 }
               ].map((feature, index) => (
-                <div 
+                <motion.div 
                   key={index}
-                  className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 text-center"
+                  className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 text-center hover:border-purple-500/30 transition-all duration-300"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                  whileHover={{ 
+                    scale: 1.05, 
+                    y: -5,
+                    boxShadow: "0 20px 40px rgba(168,85,247,0.2)"
+                  }}
                 >
-                  <div className="text-4xl mb-4">{feature.icon}</div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">{feature.title}</h3>
-                  <p className="text-gray-600">{feature.description}</p>
-                </div>
+                  <motion.div 
+                    className="text-4xl mb-4"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                  >
+                    {feature.icon}
+                  </motion.div>
+                  <h3 className="text-xl font-bold text-white mb-2">{feature.title}</h3>
+                  <p className="text-gray-400">{feature.description}</p>
+                </motion.div>
               ))}
             </div>
           </div>
+        </motion.div>
 
-          {/* CTA Section */}
-          <div className="mt-20 bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">
-              Ready to Transform Your Business?
-            </h2>
-            <p className="text-xl mb-8 text-white/90">
+          {/* CTA Section - Blue Theme */}
+          <motion.div 
+            className="mt-20 relative py-20 -mx-4 px-4"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            {/* Blue Background */}
+            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
+            
+            {/* Animated Background Grid */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `radial-gradient(circle at 1px 1px, rgba(59,130,246,0.3) 1px, transparent 0)`,
+                backgroundSize: '30px 30px'
+              }}></div>
+            </div>
+
+            {/* Gradient Orbs for Blue Section */}
+            <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 rounded-full blur-[100px]"></div>
+            <div className="absolute bottom-1/4 -right-48 w-80 h-80 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-blue-500/5 rounded-full blur-[100px]"></div>
+
+            <div className="relative z-10 max-w-7xl mx-auto text-center">
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold text-gray-800 mb-6"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+                viewport={{ once: true }}
+              >
+                Ready to Transform Your{' '}
+                <motion.span 
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ type: "spring", stiffness: 500, damping: 10 }}
+                >
+                  Business?
+                </motion.span>
+              </motion.h2>
+              <motion.p 
+                className="text-xl mb-8 text-gray-600"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+                viewport={{ once: true }}
+              >
               Get started with Suvidha POS today and experience the difference.
-            </p>
-                         <div className="flex justify-center gap-4">
+              </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row justify-center gap-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
                <Link 
                  to="/contact" 
-                 className="px-8 py-4 bg-white text-blue-600 rounded-full font-bold hover:bg-blue-50 transition-colors duration-300"
+                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-bold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
                >
                  Contact Sales
+                  <ArrowRight className="w-5 h-5" />
                </Link>
+              </motion.div>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: "spring", stiffness: 400, damping: 10 }}
+              >
                <Link 
                  to="/contact" 
-                 className="px-8 py-4 bg-blue-500 text-white rounded-full font-bold hover:bg-blue-400 transition-colors duration-300"
+                  className="px-8 py-4 bg-white/80 backdrop-blur-sm border border-blue-200 text-blue-600 rounded-full font-bold hover:bg-white/90 transition-all duration-300 flex items-center gap-2"
                >
                  Request Demo
+                  <ArrowRight className="w-5 h-5" />
                </Link>
-             </div>
+              </motion.div>
+            </motion.div>
           </div>
+        </motion.div>
         </div>
       </div>
     </div>

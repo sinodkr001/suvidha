@@ -19,6 +19,7 @@ import TermsAndConditions from './components/TermsAndConditions';
 import PrivacyPolicy from './components/PrivacyPolicy';
 import FAQ from './components/FAQ';
 import OutletTypes from './components/OutletTypes';
+import ScrollToTop from './components/ScrollToTop';
 
 function HomePage() {
   return (
@@ -41,6 +42,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-screen bg-white">
+        <ScrollToTop />
         <Header />
         <Routes>
           <Route path="/" element={<HomePage />} />

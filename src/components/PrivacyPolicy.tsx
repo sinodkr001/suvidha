@@ -1,26 +1,31 @@
 import React, { useState, useEffect } from 'react';
+import { useScrollToTop } from '../hooks/useScrollToTop';
+import { motion } from 'framer-motion';
+import { Sparkles, Zap, Shield, Clock, Eye, Database, Lock, Users, Cookie, Globe, Baby, FileText, Mail } from 'lucide-react';
 
 const PrivacyPolicy = () => {
   const [activeSection, setActiveSection] = useState('introduction');
+  
+  useScrollToTop();
 
   const sections = [
-    { id: 'introduction', title: '1. Introduction' },
-    { id: 'information-collection', title: '2. Information We Collect' },
-    { id: 'how-we-use', title: '3. How We Use Your Information' },
-    { id: 'information-sharing', title: '4. Information Sharing and Disclosure' },
-    { id: 'data-security', title: '5. Data Security' },
-    { id: 'data-retention', title: '6. Data Retention' },
-    { id: 'your-rights', title: '7. Your Rights and Choices' },
-    { id: 'cookies', title: '8. Cookies and Tracking Technologies' },
-    { id: 'international-transfers', title: '9. International Data Transfers' },
-    { id: 'children-privacy', title: '10. Children\'s Privacy' },
-    { id: 'policy-changes', title: '11. Changes to This Policy' },
-    { id: 'contact-us', title: '12. Contact Us' }
+    { id: 'introduction', title: '1. Introduction', icon: Shield },
+    { id: 'information-collection', title: '2. Information We Collect', icon: Database },
+    { id: 'how-we-use', title: '3. How We Use Your Information', icon: Eye },
+    { id: 'information-sharing', title: '4. Information Sharing and Disclosure', icon: Users },
+    { id: 'data-security', title: '5. Data Security', icon: Lock },
+    { id: 'data-retention', title: '6. Data Retention', icon: Clock },
+    { id: 'your-rights', title: '7. Your Rights and Choices', icon: Shield },
+    { id: 'cookies', title: '8. Cookies and Tracking Technologies', icon: Cookie },
+    { id: 'international-transfers', title: '9. International Data Transfers', icon: Globe },
+    { id: 'children-privacy', title: '10. Children\'s Privacy', icon: Baby },
+    { id: 'policy-changes', title: '11. Changes to This Policy', icon: FileText },
+    { id: 'contact-us', title: '12. Contact Us', icon: Mail }
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 100;
+      const scrollPosition = window.scrollY + 200; // Increased offset for better detection
 
       for (const section of sections) {
         const element = document.getElementById(section.id);
@@ -36,67 +41,163 @@ const PrivacyPolicy = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    // Add throttling for better performance
+    let ticking = false;
+    const throttledScroll = () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', throttledScroll);
+    return () => window.removeEventListener('scroll', throttledScroll);
   }, []);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const offsetTop = element.offsetTop - 120; // Account for fixed header
+      window.scrollTo({
+        top: offsetTop,
+        behavior: 'smooth'
+      });
     }
   };
 
   return (
-    <div className="font-[Poppins]">
+    <div className="font-[Poppins] overflow-x-hidden">
       {/* Hero Banner */}
-      <div className="relative h-[400px] w-full overflow-hidden">
-        <div className="absolute inset-0">
-          <img 
-            src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" 
-            alt="Privacy protection" 
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0"></div>
+      <div className="relative h-[500px] w-full overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-slate-900 to-black"></div>
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0)`,
+            backgroundSize: '30px 30px'
+          }}></div>
         </div>
-        <div className="relative h-full max-w-7xl mx-auto px-4 flex flex-col justify-center items-center text-center">
-          <span className="text-white bg-blue-600 px-6 py-2 rounded-full text-sm font-semibold mb-6 shadow-lg">
-            PRIVACY
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-orange-500/10 via-pink-500/10 to-purple-500/10 rounded-full blur-[100px] pointer-events-none transform -translate-x-1/2"></div>
+        <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 rounded-full blur-[100px] pointer-events-none transform translate-x-1/2"></div>
+
+        <div className="relative h-full max-w-7xl mx-auto px-4 flex flex-col justify-center items-center text-center z-10">
+          <motion.div 
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-pink-500/10 text-white px-8 py-4 rounded-2xl text-sm font-semibold mb-8 backdrop-blur-sm border border-orange-500/20 shadow-[0_0_15px_rgba(251,146,60,0.1)]"
+            initial={{ opacity: 0, scale: 0.8 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            whileHover={{ 
+              scale: 1.05, 
+              boxShadow: "0 0 30px rgba(251,146,60,0.2)",
+              transition: { type: "spring", stiffness: 400, damping: 10 }
+            }}
+          >
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            >
+              <Sparkles className="w-5 h-5 text-orange-400" />
+            </motion.div>
+            PRIVACY & SECURITY
+            <motion.div
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 2, repeat: Infinity, ease: "linear" }}
+            >
+              <Zap className="w-5 h-5 text-orange-400" />
+            </motion.div>
+          </motion.div>
+
+          <motion.h1 
+            className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight"
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            viewport={{ once: true }}
+          >
+            Privacy{' '}
+            <motion.span 
+              className="relative inline-block"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 500, damping: 10 }}
+            >
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-pink-500 to-orange-600">
+                Policy
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
-            Privacy Policy
-          </h1>
-          <p className="text-xl md:text-2xl text-white/90 max-w-4xl leading-relaxed">
+              <motion.div
+                className="absolute -bottom-2 left-0 right-0 h-1 bg-gradient-to-r from-orange-400 via-pink-500 to-orange-600 rounded-full"
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                transition={{ delay: 1, duration: 0.8 }}
+                viewport={{ once: true }}
+              />
+            </motion.span>
+          </motion.h1>
+
+          <motion.p 
+            className="text-xl md:text-2xl text-gray-400 max-w-4xl leading-relaxed"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
             How we collect, use, and protect your personal information
-          </p>
+          </motion.p>
         </div>
       </div>
 
-      {/* Main Content with Sidebar */}
-      <div className="bg-gray-50 py-20">
-        <div className="max-w-7xl mx-auto px-4">
+      {/* Main Content */}
+      <div className="relative py-20">
+        <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-white to-pink-50"></div>
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, rgba(251,146,60,0.3) 1px, transparent 0)`,
+            backgroundSize: '30px 30px'
+          }}></div>
+        </div>
+        <div className="absolute top-1/4 left-0 w-96 h-96 bg-gradient-to-r from-orange-500/5 via-pink-500/5 to-purple-500/5 rounded-full blur-[100px] pointer-events-none transform -translate-x-1/2"></div>
+        <div className="absolute bottom-1/4 right-0 w-80 h-80 bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 rounded-full blur-[100px] pointer-events-none transform translate-x-1/2"></div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-8">
-            {/* Navigation Sidebar */}
+            {/* Navigation Sidebar - Sticky Position */}
             <div className="lg:w-80 lg:flex-shrink-0">
-              <div className="sticky top-8">
-                <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
-                  <h3 className="text-lg font-bold text-gray-900 mb-4">Table of Contents</h3>
+              <div className="sticky top-24 h-fit">
+                <motion.div 
+                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-orange-100"
+                  initial={{ opacity: 0, x: -30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
+                  <h3 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                    <Shield className="w-5 h-5 text-orange-600" />
+                    Table of Contents
+                  </h3>
                   <nav className="space-y-2">
-                    {sections.map((section) => (
-                      <button
+                    {sections.map((section, index) => (
+                      <motion.button
                         key={section.id}
                         onClick={() => scrollToSection(section.id)}
-                        className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-blue-50 hover:text-blue-700 ${
+                        className={`w-full text-left px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 hover:bg-orange-50 hover:text-orange-700 flex items-center gap-2 ${
                           activeSection === section.id
-                            ? 'bg-blue-100 text-blue-700 border-l-4 border-blue-600'
-                            : 'text-gray-600 hover:border-l-4 hover:border-blue-300'
+                            ? 'bg-orange-100 text-orange-700 border-l-4 border-orange-600'
+                            : 'text-gray-600 hover:border-l-4 hover:border-orange-300'
                         }`}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        transition={{ duration: 0.6, delay: index * 0.1 }}
+                        viewport={{ once: true }}
+                        whileHover={{ scale: 1.02 }}
                       >
+                        <section.icon className="w-4 h-4" />
                         {section.title}
-                      </button>
+                      </motion.button>
                     ))}
                   </nav>
-                </div>
+                </motion.div>
               </div>
             </div>
 
@@ -104,217 +205,236 @@ const PrivacyPolicy = () => {
             <div className="flex-1">
               <div className="space-y-6">
                 {/* Last Updated Card */}
-                <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100">
+                <motion.div 
+                  className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-orange-100"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8 }}
+                  viewport={{ once: true }}
+                >
                   <div className="text-center">
-                    <p className="text-gray-700">
-                      <strong>Last updated:</strong> January 2025
-                    </p>
+                    <motion.div
+                      className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/10 to-pink-500/10 text-orange-700 px-4 py-2 rounded-full text-sm font-semibold mb-4"
+                      whileHover={{ scale: 1.05 }}
+                    >
+                      <Clock className="w-4 h-4" />
+                      Last updated: January 2025
+                    </motion.div>
                   </div>
-                </div>
+                </motion.div>
 
                 {/* Section Cards */}
-                <div id="introduction" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">1. Introduction</h2>
-                  <p className="text-gray-700 mb-4">
-                    Suvidha POS ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Point of Sale (POS) services, including our software, applications, and related services.
-                  </p>
-                  <p className="text-gray-700 mb-4">
-                    By using our services, you consent to the data practices described in this policy. If you do not agree with our policies and practices, please do not use our services.
-                  </p>
+                {[
+                  {
+                    id: 'introduction',
+                    title: '1. Introduction',
+                    content: 'Suvidha POS ("we," "our," or "us") is committed to protecting your privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our Point of Sale (POS) services, including our software, applications, and related services.',
+                    additionalContent: 'By using our services, you consent to the data practices described in this policy. If you do not agree with our policies and practices, please do not use our services.',
+                    icon: Shield
+                  },
+                  {
+                    id: 'information-collection',
+                    title: '2. Information We Collect',
+                    content: 'We collect various types of information to provide and improve our services:',
+                    list: [
+                      'Personal information (name, contact details, business information)',
+                      'Business data (sales, inventory, customer information)',
+                      'Technical information (device info, usage data, cookies)',
+                      'Payment information and account credentials'
+                    ],
+                    icon: Database
+                  },
+                  {
+                    id: 'how-we-use',
+                    title: '3. How We Use Your Information',
+                    content: 'We use the collected information for the following purposes:',
+                    list: [
+                      'Service Provision: To provide and maintain our POS services',
+                      'Account Management: To create and manage your account',
+                      'Customer Support: To respond to your inquiries and provide technical support',
+                      'Payment Processing: To process payments and billing',
+                      'Service Improvement: To analyze usage patterns and improve our services',
+                      'Security: To protect against fraud and ensure system security',
+                      'Communication: To send important updates and marketing communications',
+                      'Legal Compliance: To comply with applicable laws and regulations'
+                    ],
+                    icon: Eye
+                  },
+                  {
+                    id: 'information-sharing',
+                    title: '4. Information Sharing and Disclosure',
+                    content: 'We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:',
+                    list: [
+                      'Service Providers: Trusted third-party service providers',
+                      'Legal Requirements: When required by law or court orders',
+                      'Business Transfers: In case of merger, acquisition, or sale of assets',
+                      'Security: To protect our rights and prevent fraud'
+                    ],
+                    icon: Users
+                  },
+                  {
+                    id: 'data-security',
+                    title: '5. Data Security',
+                    content: 'We implement appropriate technical and organizational measures to protect your information:',
+                    list: [
+                      'Encryption: Data is encrypted in transit and at rest',
+                      'Access Controls: Strict access controls and authentication',
+                      'Regular Audits: Security assessments and vulnerability testing',
+                      'Employee Training: Regular security awareness training',
+                      'Incident Response: Procedures for handling security incidents'
+                    ],
+                    additionalContent: 'However, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security but are committed to protecting your information to the best of our ability.',
+                    icon: Lock
+                  },
+                  {
+                    id: 'data-retention',
+                    title: '6. Data Retention',
+                    content: 'We retain your information for as long as necessary to:',
+                    list: [
+                      'Provide our services to you',
+                      'Comply with legal obligations',
+                      'Resolve disputes and enforce agreements',
+                      'Improve our services'
+                    ],
+                    additionalContent: 'When we no longer need your information, we will securely delete or anonymize it in accordance with our data retention policies.',
+                    icon: Clock
+                  },
+                  {
+                    id: 'your-rights',
+                    title: '7. Your Rights and Choices',
+                    content: 'Depending on your location, you may have the following rights:',
+                    list: [
+                      'Access: Request access to your personal information',
+                      'Correction: Request correction of inaccurate information',
+                      'Deletion: Request deletion of your personal information',
+                      'Portability: Request a copy of your data in a portable format',
+                      'Restriction: Request restriction of processing',
+                      'Objection: Object to certain types of processing',
+                      'Withdrawal: Withdraw consent where processing is based on consent'
+                    ],
+                    additionalContent: 'To exercise these rights, please contact us using the information provided below.',
+                    icon: Shield
+                  },
+                  {
+                    id: 'cookies',
+                    title: '8. Cookies and Tracking Technologies',
+                    content: 'We use cookies and similar technologies to:',
+                    list: [
+                      'Remember your preferences and settings',
+                      'Analyze website usage and performance',
+                      'Provide personalized content and advertisements',
+                      'Ensure security and prevent fraud'
+                    ],
+                    additionalContent: 'You can control cookie settings through your browser preferences. However, disabling certain cookies may affect the functionality of our services.',
+                    icon: Cookie
+                  },
+                  {
+                    id: 'international-transfers',
+                    title: '9. International Data Transfers',
+                    content: 'Your information may be transferred to and processed in countries other than your own. We ensure that such transfers comply with applicable data protection laws and implement appropriate safeguards to protect your information.',
+                    icon: Globe
+                  },
+                  {
+                    id: 'children-privacy',
+                    title: '10. Children\'s Privacy',
+                    content: 'Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it promptly.',
+                    icon: Baby
+                  },
+                  {
+                    id: 'policy-changes',
+                    title: '11. Changes to This Policy',
+                    content: 'We may update this Privacy Policy from time to time. We will notify you of any material changes by:',
+                    list: [
+                      'Posting the updated policy on our website',
+                      'Sending email notifications to registered users',
+                      'Displaying prominent notices in our applications'
+                    ],
+                    additionalContent: 'Your continued use of our services after such changes constitutes acceptance of the updated policy.',
+                    icon: FileText
+                  },
+                  {
+                    id: 'contact-us',
+                    title: '12. Contact Us',
+                    content: 'If you have any questions about this Privacy Policy or our data practices, please contact us:',
+                    contactInfo: {
+                      address: '1559, 15th floor, Gaur City Mall Sector 18, Greater Noida Uttar Pradesh – 201301',
+                      phone: '(+91) 82-7171-8844',
+                      email: 'sales@suvidhapos.in',
+                      dpo: 'privacy@suvidhapos.in'
+                    },
+                    icon: Mail
+                  }
+                ].map((section, index) => (
+                  <motion.div 
+                    key={section.id}
+                    id={section.id}
+                    className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 shadow-xl border border-orange-100 hover:shadow-2xl transition-all duration-300 hover:border-orange-300"
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="flex items-center gap-3 mb-6">
+                      <motion.div 
+                        className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-50 to-orange-100 flex items-center justify-center"
+                        whileHover={{ scale: 1.1, rotate: 5 }}
+                        transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                      >
+                        <section.icon className="w-6 h-6 text-orange-600" />
+                      </motion.div>
+                      <h2 className="text-3xl font-bold text-gray-900">{section.title}</h2>
                 </div>
 
-                <div id="information-collection" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">2. Information We Collect</h2>
-                  
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">2.1 Personal Information</h3>
-                  <p className="text-gray-700 mb-4">We may collect the following personal information:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                    <li>Name and contact information (email, phone number, address)</li>
-                    <li>Business information (company name, business type, industry)</li>
-                    <li>Payment information (credit card details, billing address)</li>
-                    <li>Account credentials and login information</li>
-                    <li>Communication preferences and marketing preferences</li>
-                  </ul>
-
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">2.2 Business Data</h3>
-                  <p className="text-gray-700 mb-4">When you use our POS services, we may collect:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                    <li>Sales and transaction data</li>
-                    <li>Inventory information</li>
-                    <li>Customer data (names, contact information, purchase history)</li>
-                    <li>Employee information and access logs</li>
-                    <li>Product and service information</li>
-                  </ul>
-
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">2.3 Technical Information</h3>
-                  <p className="text-gray-700 mb-4">We automatically collect:</p>
+                    <p className="text-gray-700 mb-4 leading-relaxed">
+                      {section.content}
+                    </p>
+                    
+                    {section.list && (
                   <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-                    <li>Device information (IP address, browser type, operating system)</li>
-                    <li>Usage data (pages visited, features used, time spent)</li>
-                    <li>Log files and error reports</li>
-                    <li>Cookies and similar tracking technologies</li>
+                        {section.list.map((item, itemIndex) => (
+                          <li key={itemIndex} className="leading-relaxed">{item}</li>
+                        ))}
                   </ul>
-                </div>
-
-                <div id="how-we-use" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">3. How We Use Your Information</h2>
-                  <p className="text-gray-700 mb-4">We use the collected information for the following purposes:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-                    <li><strong>Service Provision:</strong> To provide and maintain our POS services</li>
-                    <li><strong>Account Management:</strong> To create and manage your account</li>
-                    <li><strong>Customer Support:</strong> To respond to your inquiries and provide technical support</li>
-                    <li><strong>Payment Processing:</strong> To process payments and billing</li>
-                    <li><strong>Service Improvement:</strong> To analyze usage patterns and improve our services</li>
-                    <li><strong>Security:</strong> To protect against fraud and ensure system security</li>
-                    <li><strong>Communication:</strong> To send important updates and marketing communications</li>
-                    <li><strong>Legal Compliance:</strong> To comply with applicable laws and regulations</li>
-                  </ul>
-                </div>
-
-                <div id="information-sharing" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">4. Information Sharing and Disclosure</h2>
-                  <p className="text-gray-700 mb-4">We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:</p>
-                  
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">4.1 Service Providers</h3>
-                  <p className="text-gray-700 mb-4">We may share information with trusted third-party service providers who assist us in:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                    <li>Payment processing and billing</li>
-                    <li>Cloud hosting and data storage</li>
-                    <li>Customer support and communication</li>
-                    <li>Analytics and performance monitoring</li>
-                  </ul>
-
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">4.2 Legal Requirements</h3>
-                  <p className="text-gray-700 mb-4">We may disclose your information if required by law or in response to:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-                    <li>Legal process or court orders</li>
-                    <li>Government requests or investigations</li>
-                    <li>Protection of our rights and property</li>
-                    <li>Emergency situations involving public safety</li>
-                  </ul>
-
-                  <h3 className="text-2xl font-bold text-gray-800 mb-4">4.3 Business Transfers</h3>
-                  <p className="text-gray-700 mb-4">
-                    In the event of a merger, acquisition, or sale of assets, your information may be transferred as part of the business transaction, subject to the same privacy protections.
-                  </p>
-                </div>
-
-                <div id="data-security" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">5. Data Security</h2>
-                  <p className="text-gray-700 mb-4">We implement appropriate technical and organizational measures to protect your information:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-                    <li><strong>Encryption:</strong> Data is encrypted in transit and at rest</li>
-                    <li><strong>Access Controls:</strong> Strict access controls and authentication</li>
-                    <li><strong>Regular Audits:</strong> Security assessments and vulnerability testing</li>
-                    <li><strong>Employee Training:</strong> Regular security awareness training</li>
-                    <li><strong>Incident Response:</strong> Procedures for handling security incidents</li>
-                  </ul>
-                  <p className="text-gray-700 mb-4">
-                    However, no method of transmission over the internet or electronic storage is 100% secure. We cannot guarantee absolute security but are committed to protecting your information to the best of our ability.
-                  </p>
-                </div>
-
-                <div id="data-retention" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">6. Data Retention</h2>
-                  <p className="text-gray-700 mb-4">We retain your information for as long as necessary to:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-                    <li>Provide our services to you</li>
-                    <li>Comply with legal obligations</li>
-                    <li>Resolve disputes and enforce agreements</li>
-                    <li>Improve our services</li>
-                  </ul>
-                  <p className="text-gray-700 mb-4">
-                    When we no longer need your information, we will securely delete or anonymize it in accordance with our data retention policies.
-                  </p>
-                </div>
-
-                <div id="your-rights" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">7. Your Rights and Choices</h2>
-                  <p className="text-gray-700 mb-4">Depending on your location, you may have the following rights:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-                    <li><strong>Access:</strong> Request access to your personal information</li>
-                    <li><strong>Correction:</strong> Request correction of inaccurate information</li>
-                    <li><strong>Deletion:</strong> Request deletion of your personal information</li>
-                    <li><strong>Portability:</strong> Request a copy of your data in a portable format</li>
-                    <li><strong>Restriction:</strong> Request restriction of processing</li>
-                    <li><strong>Objection:</strong> Object to certain types of processing</li>
-                    <li><strong>Withdrawal:</strong> Withdraw consent where processing is based on consent</li>
-                  </ul>
-                  <p className="text-gray-700 mb-4">
-                    To exercise these rights, please contact us using the information provided below.
-                  </p>
-                </div>
-
-                <div id="cookies" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">8. Cookies and Tracking Technologies</h2>
-                  <p className="text-gray-700 mb-4">We use cookies and similar technologies to:</p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-                    <li>Remember your preferences and settings</li>
-                    <li>Analyze website usage and performance</li>
-                    <li>Provide personalized content and advertisements</li>
-                    <li>Ensure security and prevent fraud</li>
-                  </ul>
-                  <p className="text-gray-700 mb-4">
-                    You can control cookie settings through your browser preferences. However, disabling certain cookies may affect the functionality of our services.
-                  </p>
-                </div>
-
-                <div id="international-transfers" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">9. International Data Transfers</h2>
-                  <p className="text-gray-700 mb-4">
-                    Your information may be transferred to and processed in countries other than your own. We ensure that such transfers comply with applicable data protection laws and implement appropriate safeguards to protect your information.
-                  </p>
-                </div>
-
-                <div id="children-privacy" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">10. Children's Privacy</h2>
-                  <p className="text-gray-700 mb-4">
-                    Our services are not intended for children under the age of 13. We do not knowingly collect personal information from children under 13. If we become aware that we have collected such information, we will take steps to delete it promptly.
-                  </p>
-                </div>
-
-                <div id="policy-changes" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">11. Changes to This Policy</h2>
-                  <p className="text-gray-700 mb-4">
-                    We may update this Privacy Policy from time to time. We will notify you of any material changes by:
-                  </p>
-                  <ul className="list-disc pl-6 text-gray-700 mb-4 space-y-2">
-                    <li>Posting the updated policy on our website</li>
-                    <li>Sending email notifications to registered users</li>
-                    <li>Displaying prominent notices in our applications</li>
-                  </ul>
-                  <p className="text-gray-700 mb-4">
-                    Your continued use of our services after such changes constitutes acceptance of the updated policy.
-                  </p>
-                </div>
-
-                <div id="contact-us" className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                  <h2 className="text-3xl font-bold text-gray-900 mb-6">12. Contact Us</h2>
-                  <p className="text-gray-700 mb-4">
-                    If you have any questions about this Privacy Policy or our data practices, please contact us:
-                  </p>
-                  <div className="bg-gray-50 p-6 rounded-2xl">
+                    )}
+                    
+                    {section.additionalContent && (
+                      <p className="text-gray-700 mb-4 leading-relaxed">
+                        {section.additionalContent}
+                      </p>
+                    )}
+                    
+                    {section.contactInfo && (
+                      <div className="bg-gradient-to-r from-orange-50 to-pink-50 p-6 rounded-2xl border border-orange-100">
                     <p className="text-gray-700 mb-2">
-                      <strong>Address:</strong> 1559, 15th floor, Gaur City Mall Sector 18, Greater Noida Uttar Pradesh – 201301
+                          <strong>Address:</strong> {section.contactInfo.address}
                     </p>
                     <p className="text-gray-700 mb-2">
-                      <strong>Phone:</strong> (+91) 82-7171-8844
+                          <strong>Phone:</strong> {section.contactInfo.phone}
                     </p>
                     <p className="text-gray-700 mb-2">
-                      <strong>Email:</strong> sales@suvidhapos.in
+                          <strong>Email:</strong> {section.contactInfo.email}
                     </p>
                     <p className="text-gray-700 mb-2">
-                      <strong>Data Protection Officer:</strong> privacy@suvidhapos.in
+                          <strong>Data Protection Officer:</strong> {section.contactInfo.dpo}
                     </p>
                   </div>
-                </div>
+                    )}
+                  </motion.div>
+                ))}
 
                 {/* Final Card */}
-                <div className="bg-blue-50 rounded-2xl p-8 shadow-lg border border-blue-100">
-                  <p className="text-gray-700 text-center">
+                <motion.div 
+                  className="bg-gradient-to-r from-orange-500/10 via-pink-500/10 to-purple-500/10 rounded-2xl p-8 shadow-xl border border-orange-200"
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <p className="text-gray-700 text-center text-lg leading-relaxed">
                     By using Suvidha POS services, you acknowledge that you have read and understood this Privacy Policy and consent to the collection, use, and disclosure of your information as described herein.
                   </p>
-                </div>
+                </motion.div>
               </div>
             </div>
           </div>
