@@ -7,7 +7,7 @@ import { Sparkles, Zap, ArrowRight, Users, Target, Award, Shield, Clock, CheckCi
 import { useScrollToTop } from '../hooks/useScrollToTop';
 
 const AboutUs = () => {
-  // Ensure page scrolls to top when component mounts
+  // Ensure page scrolls to top when component mounts  
   useScrollToTop();
   
   return (
