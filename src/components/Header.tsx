@@ -96,27 +96,58 @@ const Header = () => {
           </button>
         </nav>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu - Full Screen */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute left-0 top-full w-full bg-white/95 backdrop-blur-md shadow-xl z-50 px-6 py-6 space-y-4 border-t border-gray-200">
-            <Link to="/" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
+          <div className="lg:hidden fixed inset-0 bg-gradient-to-br from-white via-orange-50/30 to-pink-50/30 backdrop-blur-lg z-50 flex flex-col">
+            {/* Header in Mobile Menu */}
+            <div className="flex items-center justify-between p-6 border-b border-orange-100 bg-white/80 backdrop-blur-sm">
+              <div className="flex items-center space-x-3">
+                <img
+                  src="/oldlogo (1).png"
+                  alt="Suvidha POS Logo"
+                  className="w-12 h-12 rounded-xl object-cover shadow-lg transform hover:scale-110 transition-transform duration-300"
+                />
+                <h3 className="text-2xl font-bold">
+                  <span className="bg-gradient-to-r from-orange-500 to-orange-600 bg-clip-text text-transparent">Suvidha</span>{' '}
+                  <span className="text-gray-800">POS</span>
+                </h3>
+              </div>
+              <button
+                className="text-gray-700 hover:text-orange-500 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-orange-50"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <X size={28} />
+              </button>
+            </div>
+            
+            {/* Mobile Menu Content */}
+            <div className="flex-1 flex flex-col justify-center px-8 py-12 space-y-4">
+            <Link to="/" onClick={closeMobileMenu} className={`block transition-all duration-300 font-semibold py-4 px-4 rounded-xl text-lg ${isActive('/') ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50 hover:border-l-4 hover:border-orange-300'}`}>
               Home
             </Link>
-            <Link to="/outlet-types" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/outlet-types') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
+            <Link to="/outlet-types" onClick={closeMobileMenu} className={`block transition-all duration-300 font-semibold py-4 px-4 rounded-xl text-lg ${isActive('/outlet-types') ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50 hover:border-l-4 hover:border-orange-300'}`}>
               Outlet Types
             </Link>
-            <Link to="/about" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/about') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
+            <Link to="/about" onClick={closeMobileMenu} className={`block transition-all duration-300 font-semibold py-4 px-4 rounded-xl text-lg ${isActive('/about') ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50 hover:border-l-4 hover:border-orange-300'}`}>
               About Us
             </Link>
-            <Link to="/faq" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/faq') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
+            <Link to="/faq" onClick={closeMobileMenu} className={`block transition-all duration-300 font-semibold py-4 px-4 rounded-xl text-lg ${isActive('/faq') ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50 hover:border-l-4 hover:border-orange-300'}`}>
               FAQ
             </Link>
-            <Link to="/contact" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/contact') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
+            <Link to="/contact" onClick={closeMobileMenu} className={`block transition-all duration-300 font-semibold py-4 px-4 rounded-xl text-lg ${isActive('/contact') ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50 hover:border-l-4 hover:border-orange-300'}`}>
               Contact Us
             </Link>
-            <a href="/contact" onClick={closeMobileMenu} className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 mt-4">
+            <a href="/contact" onClick={closeMobileMenu} className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-5 rounded-2xl font-bold text-lg transition-all duration-300 hover:shadow-xl hover:shadow-orange-500/30 hover:scale-105 mt-8 text-center transform">
               GET STARTED
             </a>
+            
+            {/* Footer in Mobile Menu */}
+            <div className="mt-auto pb-8 pt-6 border-t border-orange-100">
+              <p className="text-center text-gray-500 text-sm">
+                © 2025 Suvidha POS. All rights reserved.
+              </p>
+            </div>
+            </div>
           </div>
         )}
       </div>
