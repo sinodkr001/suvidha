@@ -15,6 +15,13 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Cleanup function to re-enable body scrolling when component unmounts
+  useEffect(() => {
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   // Function to check if a link is active
   const isActive = (path: string) => {
     if (path === '/') {
@@ -40,6 +47,24 @@ const Header = () => {
   // Function to close mobile menu
   const closeMobileMenu = () => {
     setIsMenuOpen(false);
+    // Re-enable body scrolling when menu closes
+    document.body.style.overflow = 'auto';
+  };
+
+  // Function to handle menu toggle
+  const toggleMobileMenu = () => {
+    const newMenuState = !isMenuOpen;
+    setIsMenuOpen(newMenuState);
+    
+    if (newMenuState) {
+      // Disable body scrolling when menu opens
+      document.body.style.overflow = 'hidden';
+      // Scroll to top to ensure menu is visible
+      window.scrollTo(0, 0);
+    } else {
+      // Re-enable body scrolling when menu closes
+      document.body.style.overflow = 'auto';
+    }
   };
 
   return (
@@ -90,7 +115,7 @@ const Header = () => {
           {/* Mobile Menu Button */}
           <button
             className={`lg:hidden ${isScrolled ? 'text-gray-700' : 'text-white'}`}
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
+            onClick={toggleMobileMenu}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
           </button>
@@ -98,7 +123,7 @@ const Header = () => {
 
         {/* Mobile Menu - Full Screen */}
         {isMenuOpen && (
-          <div className="lg:hidden fixed inset-0 bg-gradient-to-br from-white via-orange-50/30 to-pink-50/30 backdrop-blur-lg z-50 flex flex-col">
+          <div className="lg:hidden fixed inset-0 top-0 left-0 w-full h-full bg-gradient-to-br from-white via-orange-50/30 to-pink-50/30 backdrop-blur-lg z-[9999] flex flex-col">
             {/* Header in Mobile Menu */}
             <div className="flex items-center justify-between p-6 border-b border-orange-100 bg-white/80 backdrop-blur-sm">
               <div className="flex items-center space-x-3">
@@ -114,7 +139,7 @@ const Header = () => {
               </div>
               <button
                 className="text-gray-700 hover:text-orange-500 transition-all duration-300 hover:scale-110 p-2 rounded-full hover:bg-orange-50"
-                onClick={() => setIsMenuOpen(false)}
+                onClick={closeMobileMenu}
               >
                 <X size={28} />
               </button>
