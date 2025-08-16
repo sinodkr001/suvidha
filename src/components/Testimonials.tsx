@@ -216,7 +216,7 @@ const Testimonials = () => {
           </motion.button>
 
           {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 px-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 px-4 sm:px-16">
             <AnimatePresence mode="wait">
               {getCurrentTestimonials().map((testimonial, idx) => (
                 <motion.div
@@ -228,7 +228,7 @@ const Testimonials = () => {
                   className="group relative"
                 >
                   <motion.div 
-                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-8 pt-16 relative flex flex-col items-center text-center min-h-[450px] transition-all duration-300"
+                    className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-3xl p-6 sm:p-8 pt-16 relative flex flex-col items-center text-center min-h-[400px] sm:min-h-[450px] transition-all duration-300"
                     whileHover={{ 
                       scale: 1.02, 
                       y: -5,
@@ -260,7 +260,7 @@ const Testimonials = () => {
                     </div>
 
                     {/* Text */}
-                    <p className="text-lg text-gray-300 mb-8 leading-relaxed italic font-medium flex-1">
+                    <p className="text-base sm:text-lg text-gray-300 mb-6 sm:mb-8 leading-relaxed italic font-medium flex-1">
                       "{testimonial.text}"
                     </p>
 
@@ -268,31 +268,31 @@ const Testimonials = () => {
                     <div className="w-16 h-1 bg-gradient-to-r from-purple-500 to-blue-600 rounded-full mx-auto mb-6" />
 
                     {/* User */}
-                    <div className="flex items-center justify-center gap-4 mt-auto">
+                    <div className="flex items-center justify-center gap-3 sm:gap-4 mt-auto">
                       {testimonial.image ? (
                         <motion.img
                           src={testimonial.image}
                           alt={testimonial.name}
-                          className="w-16 h-16 rounded-full object-cover border-2 border-purple-500 shadow-lg"
+                          className="w-12 h-12 sm:w-16 sm:h-16 rounded-full object-cover border-2 border-purple-500 shadow-lg"
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         />
                       ) : (
                         <motion.div 
-                          className="w-16 h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center"
+                          className="w-12 h-12 sm:w-16 sm:h-16 bg-gradient-to-br from-purple-500 to-blue-600 rounded-full flex items-center justify-center"
                           whileHover={{ scale: 1.1 }}
                           transition={{ type: "spring", stiffness: 400, damping: 10 }}
                         >
-                          <span className="text-white font-bold text-2xl">
+                          <span className="text-white font-bold text-lg sm:text-2xl">
                             {testimonial.name.charAt(0)}
                           </span>
                         </motion.div>
                       )}
                       <div className="text-left">
-                        <h4 className="text-lg font-bold text-white">
+                        <h4 className="text-base sm:text-lg font-bold text-white">
                           {testimonial.name}
                         </h4>
-                        <p className="text-purple-300 font-medium">
+                        <p className="text-sm sm:text-base text-purple-300 font-medium">
                           {testimonial.business}
                         </p>
                       </div>
@@ -304,7 +304,7 @@ const Testimonials = () => {
           </div>
 
           {/* Dots Indicator */}
-          <div className="flex justify-center mt-12 gap-3">
+          <div className="flex justify-center mt-8 sm:mt-12 gap-3">
             {[...Array(totalSlides)].map((_, index) => (
               <motion.button
                 key={index}
@@ -322,7 +322,7 @@ const Testimonials = () => {
 
           {/* Auto-play Indicator */}
           <motion.div 
-            className="flex justify-center mt-6"
+            className="flex justify-center mt-4 sm:mt-6"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.8 }}

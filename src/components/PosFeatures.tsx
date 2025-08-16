@@ -72,7 +72,9 @@ const PosFeatures = () => {
                 </div>
               </div>
             </div>
-            <button className="mt-10 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 font-semibold flex items-center gap-2 group shadow-lg border-2 border-orange-400/30 focus:ring-2 focus:ring-orange-500/30 focus:outline-none">
+            <button onClick={() => {
+              window.location.href = '/contact';
+            }} className="mt-10 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white px-10 py-4 rounded-full transition-all duration-300 hover:scale-105 font-semibold flex items-center gap-2 group shadow-lg border-2 border-orange-400/30 focus:ring-2 focus:ring-orange-500/30 focus:outline-none">
               Contact Us
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </button>

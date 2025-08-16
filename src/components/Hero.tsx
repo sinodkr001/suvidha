@@ -110,7 +110,7 @@ const Hero = () => {
           {/* Left Side - Content */}
           <div className="lg:w-1/2 text-white">
             <motion.div 
-              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/5 to-pink-500/5 text-white px-8 py-4 rounded-2xl text-sm font-semibold mb-8 backdrop-blur-sm border border-orange-500/10 shadow-[0_0_15px_rgba(251,146,60,0.1)]"
+              className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-500/5 to-pink-500/5 text-white px-8 py-4 rounded-2xl text-sm font-semibold mb-8 mt-8 sm:mt-0 backdrop-blur-sm border border-orange-500/10 shadow-[0_0_15px_rgba(251,146,60,0.1)]"
               variants={itemVariants}
               whileHover={{ 
                 scale: 1.05, 
@@ -210,7 +210,8 @@ const Hero = () => {
               className="flex flex-col sm:flex-row gap-6 items-start"
               variants={itemVariants}
             >
-              <motion.button 
+              <motion.a 
+                href="/contact"
                 className="group bg-gradient-to-r from-orange-500 via-orange-600 to-pink-600 text-white px-10 py-5 rounded-2xl text-lg font-semibold transition-all duration-300 flex items-center gap-3 shadow-xl hover:shadow-orange-500/25 backdrop-blur-sm"
                 whileHover={{ 
                   scale: 1.05,
@@ -226,7 +227,7 @@ const Hero = () => {
                 >
                   <ArrowRight className="w-6 h-6" />
                 </motion.div>
-              </motion.button>
+              </motion.a>
 
               <motion.button 
                 className="group bg-white/5 backdrop-blur-sm border border-white/10 text-white px-10 py-5 rounded-2xl text-lg font-semibold transition-all duration-300 flex items-center gap-3 hover:bg-white/10"

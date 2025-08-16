@@ -37,6 +37,11 @@ const Header = () => {
     }
   };
 
+  // Function to close mobile menu
+  const closeMobileMenu = () => {
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className={`fixed w-full top-0 z-50 transition-all duration-300 ${
       isScrolled ? 'bg-white/80 backdrop-blur-lg shadow-lg' : 'bg-transparent'
@@ -77,9 +82,9 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105">
+            <a href="/contact" className="bg-gradient-to-r from-orange-500 to-orange-600 text-white px-8 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 hover:scale-105">
               GET STARTED
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -93,25 +98,25 @@ const Header = () => {
 
         {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden absolute left-0 top-full w-full bg-white/80 backdrop-blur-lg shadow-lg z-50 px-6 py-4 space-y-4">
-            <Link to="/" className={`block transition-colors font-medium ${isActive('/') ? 'text-orange-500 font-semibold' : 'text-gray-700 hover:text-orange-500'}`}>
+          <div className="lg:hidden absolute left-0 top-full w-full bg-white/95 backdrop-blur-md shadow-xl z-50 px-6 py-6 space-y-4 border-t border-gray-200">
+            <Link to="/" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
               Home
             </Link>
-            <Link to="/outlet-types" className={`block transition-colors font-medium ${isActive('/outlet-types') ? 'text-orange-500 font-semibold' : 'text-gray-700 hover:text-orange-500'}`}>
+            <Link to="/outlet-types" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/outlet-types') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
               Outlet Types
             </Link>
-            <Link to="/about" className={`block transition-colors font-medium ${isActive('/about') ? 'text-orange-500 font-semibold' : 'text-gray-700 hover:text-orange-500'}`}>
+            <Link to="/about" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/about') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
               About Us
             </Link>
-            <Link to="/faq" className={`block transition-colors font-medium ${isActive('/faq') ? 'text-orange-500 font-semibold' : 'text-gray-700 hover:text-orange-500'}`}>
+            <Link to="/faq" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/faq') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
               FAQ
             </Link>
-            <Link to="/contact" className={`block transition-colors font-medium ${isActive('/contact') ? 'text-orange-500 font-semibold' : 'text-gray-700 hover:text-orange-500'}`}>
+            <Link to="/contact" onClick={closeMobileMenu} className={`block transition-colors font-medium py-3 px-2 rounded-lg ${isActive('/contact') ? 'text-orange-500 font-semibold bg-orange-50' : 'text-gray-700 hover:text-orange-500 hover:bg-gray-50'}`}>
               Contact Us
             </Link>
-            <button className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25">
+            <a href="/contact" onClick={closeMobileMenu} className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white px-6 py-3 rounded-full font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-orange-500/25 mt-4">
               GET STARTED
-            </button>
+            </a>
           </div>
         )}
       </div>

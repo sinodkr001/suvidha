@@ -82,6 +82,51 @@ const OutletTypes = () => {
 
   const outletTypes: OutletFeature[] = [
     {
+      title: "Medical & Pharmacy",
+      icon: "🏥",
+      image: "https://images.pexels.com/photos/247786/pexels-photo-247786.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      features: [
+        "Prescription management system",
+        "Medicine inventory tracking",
+        "Patient records management",
+        "Insurance billing integration",
+        "Drug interaction alerts",
+        "Expiry date monitoring",
+        "Doctor appointment scheduling",
+        "Medical supply management"
+      ]
+    },
+    {
+      title: "Agriculture & Farming",
+      icon: "🌾",
+      image: "https://images.pexels.com/photos/2255935/pexels-photo-2255935.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      features: [
+        "Crop management tracking",
+        "Harvest planning system",
+        "Equipment maintenance logs",
+        "Weather integration alerts",
+        "Fertilizer inventory control",
+        "Seed stock management",
+        "Field mapping & GPS",
+        "Yield analysis reporting"
+      ]
+    },
+    {
+      title: "Retail & Fashion",
+      icon: "🛍️",
+      image: "https://images.pexels.com/photos/1884584/pexels-photo-1884584.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      features: [
+        "Multi-size inventory management",
+        "Seasonal collection tracking",
+        "Customer size preferences",
+        "Fashion trend analytics",
+        "Return & exchange handling",
+        "Loyalty program integration",
+        "Visual merchandising tools",
+        "Brand collaboration tracking"
+      ]
+    },
+    {
       title: "Fine Dine",
       icon: "🍽️",
       image: getOutletImage("Fine Dine"),
@@ -249,7 +294,7 @@ const OutletTypes = () => {
     {
       title: "Large Chains",
       icon: "🔗",
-      image: "/mobile_app.jpg",
+      image: "https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Multi-location management",
         "Centralized control",
@@ -279,7 +324,7 @@ const OutletTypes = () => {
     {
       title: "Juice Outlet",
       icon: "🥤",
-      image: "/scan-new.png",
+      image: "https://images.pexels.com/photos/1187766/pexels-photo-1187766.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Fresh ingredient tracking",
         "Custom juice combinations",
@@ -294,7 +339,7 @@ const OutletTypes = () => {
     {
       title: "Chaat Outlet",
       icon: "🥘",
-      image: "/process-new.png",
+      image: "https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Quick preparation tracking",
         "Ingredient freshness",
@@ -309,7 +354,7 @@ const OutletTypes = () => {
     {
       title: "Cafeteria Canteen",
       icon: "🏫",
-      image: "/scan-order.png",
+      image: "https://images.pexels.com/photos/6248997/pexels-photo-6248997.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Meal plan management",
         "Bulk meal preparation",
@@ -324,7 +369,7 @@ const OutletTypes = () => {
     {
       title: "Sandwich Outlet",
       icon: "🥪",
-      image: "/process-new.png",
+      image: "https://images.pexels.com/photos/1647163/pexels-photo-1647163.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Custom sandwich builder",
         "Ingredient freshness",
@@ -339,7 +384,7 @@ const OutletTypes = () => {
     {
       title: "Burger Outlet",
       icon: "🍔",
-      image: "/scan-new.png",
+      image: "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Patty management",
         "Custom burger builder",
@@ -354,7 +399,7 @@ const OutletTypes = () => {
     {
       title: "Bistro",
       icon: "🍽️",
-      image: "/process-new.png",
+      image: "https://images.pexels.com/photos/67468/pexels-photo-67468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Casual dining setup",
         "Daily specials",
@@ -369,7 +414,7 @@ const OutletTypes = () => {
     {
       title: "Food Truck",
       icon: "🚚",
-      image: "/mobile_app.jpg",
+      image: "https://images.pexels.com/photos/2227960/pexels-photo-2227960.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Mobile POS",
         "Location tracking",
@@ -384,7 +429,7 @@ const OutletTypes = () => {
     {
       title: "Restro Bars",
       icon: "🍸",
-      image: "/scan-order.png",
+      image: "https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Bar & restaurant menu",
         "Table management",
@@ -414,7 +459,7 @@ const OutletTypes = () => {
     {
       title: "Pubs",
       icon: "🍺",
-      image: "/scan-order.png",
+      image: "https://images.pexels.com/photos/1269025/pexels-photo-1269025.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Draft beer management",
         "Bar food menu",
@@ -429,7 +474,7 @@ const OutletTypes = () => {
     {
       title: "Confectionery",
       icon: "🍬",
-      image: "/process-new.png",
+      image: "https://images.pexels.com/photos/3071821/pexels-photo-3071821.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Sweet item tracking",
         "Custom packaging",
@@ -444,7 +489,7 @@ const OutletTypes = () => {
     {
       title: "Cake Outlet",
       icon: "🎂",
-      image: "/delivery-new.png",
+      image: "https://images.pexels.com/photos/291528/pexels-photo-291528.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Custom cake orders",
         "Design catalogue",
@@ -459,7 +504,7 @@ const OutletTypes = () => {
     {
       title: "Self Service",
       icon: "🤳",
-      image: "/scan-new.png",
+      image: "https://images.pexels.com/photos/2922672/pexels-photo-2922672.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
       features: [
         "Kiosk interface",
         "Digital menu",
@@ -837,7 +882,7 @@ const OutletTypes = () => {
             viewport={{ once: true }}
           >
             {/* Blue Background */}
-            <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50"></div>
+            <div className="absolute inset-0 bg-gradient-to-br from-orange-50 via-amber-50 to-yellow-50"></div>
             
             {/* Animated Background Grid */}
             <div className="absolute inset-0 opacity-10">
@@ -848,8 +893,8 @@ const OutletTypes = () => {
             </div>
 
             {/* Gradient Orbs for Blue Section */}
-            <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-r from-blue-500/5 via-indigo-500/5 to-purple-500/5 rounded-full blur-[100px]"></div>
-            <div className="absolute bottom-1/4 -right-48 w-80 h-80 bg-gradient-to-r from-indigo-500/5 via-purple-500/5 to-blue-500/5 rounded-full blur-[100px]"></div>
+            <div className="absolute top-1/4 -left-48 w-96 h-96 bg-gradient-to-r from-orange-500/5 via-amber-500/5 to-yellow-500/5 rounded-full blur-[100px]"></div>
+            <div className="absolute bottom-1/4 -right-48 w-80 h-80 bg-gradient-to-r from-yellow-500/5 via-orange-500/5 to-amber-500/5 rounded-full blur-[100px]"></div>
 
             <div className="relative z-10 max-w-7xl mx-auto text-center">
               <motion.h2 
@@ -861,7 +906,7 @@ const OutletTypes = () => {
               >
                 Ready to Transform Your{' '}
                 <motion.span 
-                  className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600"
+                  className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 via-amber-600 to-yellow-600"
                   whileHover={{ scale: 1.05 }}
                   transition={{ type: "spring", stiffness: 500, damping: 10 }}
                 >
@@ -891,7 +936,7 @@ const OutletTypes = () => {
               >
                <Link 
                  to="/contact" 
-                  className="px-8 py-4 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-full font-bold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-blue-500/25 flex items-center gap-2"
+                  className="px-8 py-4 bg-gradient-to-r from-orange-600 to-amber-600 text-white rounded-full font-bold hover:from-orange-700 hover:to-amber-700 transition-all duration-300 shadow-lg hover:shadow-orange-500/25 flex items-center gap-2"
                >
                  Contact Sales
                   <ArrowRight className="w-5 h-5" />
@@ -904,7 +949,7 @@ const OutletTypes = () => {
               >
                <Link 
                  to="/contact" 
-                  className="px-8 py-4 bg-white/80 backdrop-blur-sm border border-blue-200 text-blue-600 rounded-full font-bold hover:bg-white/90 transition-all duration-300 flex items-center gap-2"
+                  className="px-8 py-4 bg-white/80 backdrop-blur-sm border border-orange-200 text-orange-600 rounded-full font-bold hover:bg-white/90 transition-all duration-300 flex items-center gap-2"
                >
                  Request Demo
                   <ArrowRight className="w-5 h-5" />

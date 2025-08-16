@@ -177,22 +177,30 @@ const AboutUs = () => {
               viewport={{ once: true }}
             >
               <motion.div 
-                className="rounded-3xl shadow-2xl overflow-hidden bg-white/80 hover:scale-105 transition-transform duration-300 border border-orange-100"
+                className="rounded-3xl shadow-2xl overflow-hidden bg-white/80 hover:scale-105 transition-transform duration-300 border border-orange-100 max-w-lg"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(251,146,60,0.2)"
                 }}
               >
-                <img src="/process-new.png" alt="POS Illustration" className="w-full max-w-xs mx-auto object-cover" />
+                <img 
+                  src="https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&w=600&h=400&fit=crop" 
+                  alt="Modern POS Technology" 
+                  className="w-full h-80 object-cover" 
+                />
               </motion.div>
               <motion.div 
-                className="rounded-3xl shadow-2xl overflow-hidden bg-white/80 hover:scale-105 transition-transform duration-300 border border-orange-100"
+                className="rounded-3xl shadow-2xl overflow-hidden bg-white/80 hover:scale-105 transition-transform duration-300 border border-orange-100 max-w-lg"
                 whileHover={{ 
                   scale: 1.05, 
                   boxShadow: "0 20px 40px rgba(251,146,60,0.2)"
                 }}
               >
-                <img src="/delivery-new.png" alt="Cloud POS" className="w-full max-w-xs mx-auto object-cover" />
+                <img 
+                  src="https://images.pexels.com/photos/3183153/pexels-photo-3183153.jpeg?auto=compress&w=600&h=400&fit=crop" 
+                  alt="Business Team Collaboration" 
+                  className="w-full h-80 object-cover" 
+                />
               </motion.div>
             </motion.div>
           </div>
@@ -243,13 +251,13 @@ const AboutUs = () => {
                 Our customer centric is wonderful power
               </motion.h3>
               <motion.div 
-                className="rounded-3xl shadow-xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 mb-4"
+                className="rounded-3xl shadow-xl overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 mb-4 max-w-2lg"
                 whileHover={{ 
                   scale: 1.02, 
                   boxShadow: "0 20px 40px rgba(168,85,247,0.2)"
                 }}
               >
-              <img src="https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg?auto=compress&w=400&h=200&fit=crop" alt="Teamwork" className="w-full max-w-sm object-cover" />
+              <img src="https://images.pexels.com/photos/1181355/pexels-photo-1181355.jpeg?auto=compress&w=500&h=400&fit=crop" alt="Teamwork" className="w-full h-80 object-cover" />
               </motion.div>
             </motion.div>
             <motion.div 
