@@ -92,7 +92,7 @@ const Header = () => {
               Home
             </Link>
             <Link to="/outlet-types" className={getLinkStyle('/outlet-types')}>
-              Outlet Types
+              Products
             </Link>
             <Link to="/about" className={getLinkStyle('/about')}>
               About Us
@@ -151,7 +151,7 @@ const Header = () => {
               Home
             </Link>
             <Link to="/outlet-types" onClick={closeMobileMenu} className={`block transition-all duration-300 font-semibold py-4 px-4 rounded-xl text-lg ${isActive('/outlet-types') ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50 hover:border-l-4 hover:border-orange-300'}`}>
-              Outlet Types
+              Products
             </Link>
             <Link to="/about" onClick={closeMobileMenu} className={`block transition-all duration-300 font-semibold py-4 px-4 rounded-xl text-lg ${isActive('/about') ? 'text-orange-500 bg-orange-50 border-l-4 border-orange-500' : 'text-gray-700 hover:text-orange-500 hover:bg-orange-50 hover:border-l-4 hover:border-orange-300'}`}>
               About Us

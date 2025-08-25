@@ -21,7 +21,7 @@ const chatFlow = [
   },
   {
     question: 'How much does it cost?',
-    answer: 'Our pricing is flexible and depends on your business size and requirements. We offer competitive rates starting from ₹999/month. Contact us for a personalized quote!'
+    answer: 'Our pricing is flexible and depends on your business size and requirements.Contact us for a personalized quote!'
   }
 ];
 
