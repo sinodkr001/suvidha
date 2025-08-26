@@ -100,7 +100,7 @@ const CoreFeatures = () => {
         </div>
         
         <div className="text-center mt-20">
-          <button className="bg-gradient-to-r from-orange-500 via-orange-600 to-pink-600 text-white px-12 py-5 rounded-2xl transition-all duration-300 hover:shadow-[0_10px_30px_rgba(251,146,60,0.3)] hover:scale-105 font-semibold flex items-center gap-3 mx-auto group">
+          <button onClick={() => window.location.href = '/outlet-types'} className="bg-gradient-to-r from-orange-500 via-orange-600 to-pink-600 text-white px-12 py-5 rounded-2xl transition-all duration-300 hover:shadow-[0_10px_30px_rgba(251,146,60,0.3)] hover:scale-105 font-semibold flex items-center gap-3 mx-auto group">
             Explore All Features
             <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
           </button>
