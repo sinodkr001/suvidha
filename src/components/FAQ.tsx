@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { ChevronDown, ChevronUp, Search, Phone, Mail, MessageCircle, Sparkles, Zap, ArrowRight, HelpCircle, Shield, Clock } from 'lucide-react';
+import { ChevronDown, ChevronUp, Search, Phone, Mail, MessageCircle, Sparkles, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollToTop } from '../hooks/useScrollToTop';
 

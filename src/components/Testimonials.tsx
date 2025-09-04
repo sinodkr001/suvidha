@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Star, Quote, Sparkles, Zap, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -52,13 +52,13 @@ const Testimonials = () => {
   const [isAutoPlaying, setIsAutoPlaying] = useState(true);
   const totalSlides = Math.ceil(testimonials.length / 3);
 
-  const nextSlide = () => {
+  const nextSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides);
-  };
+  }, [totalSlides]);
 
-  const prevSlide = () => {
+  const prevSlide = useCallback(() => {
     setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
-  };
+  }, [totalSlides]);
 
   const getCurrentTestimonials = () => {
     const startIndex = currentSlide * 3;
@@ -74,7 +74,7 @@ const Testimonials = () => {
     }, 6000); // Change slide every 6 seconds
 
     return () => clearInterval(interval);
-  }, [currentSlide, isAutoPlaying]);
+  }, [currentSlide, isAutoPlaying, nextSlide]);
 
   // Pause auto-scroll when user interacts
   const handleManualNavigation = (direction: 'next' | 'prev') => {

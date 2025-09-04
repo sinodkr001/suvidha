@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Play, Sparkles, Zap } from 'lucide-react';
-import { motion, useScroll, useTransform, useSpring, useInView, easeInOut, easeOut } from 'framer-motion';
+import { motion, useScroll, useTransform, useSpring, easeInOut, easeOut } from 'framer-motion';
 
 const Hero = () => {
   const { scrollY } = useScroll();

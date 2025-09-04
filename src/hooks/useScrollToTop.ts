@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 
-export const useScrollToTop = (dependencies: any[] = []) => {
+export const useScrollToTop = (dependencies: React.DependencyList = []) => {
   useEffect(() => {
     // Scroll to top when component mounts or dependencies change
     const timer = setTimeout(() => {

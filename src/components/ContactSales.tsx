@@ -131,7 +131,7 @@ const ContactSales = () => {
 
             <motion.button 
             onClick={() => {
-              window.location.href = '/contact';
+              window.location.assign('/contact');
             }}
               className="group bg-white/80 backdrop-blur-sm border border-orange-200 text-orange-600 px-12 py-5 rounded-2xl text-xl font-semibold transition-all duration-300 flex items-center gap-3 hover:bg-white hover:shadow-lg"
               whileHover={{ scale: 1.05 }}

@@ -219,7 +219,7 @@ const HowItWorks = () => {
         >
           <motion.button 
           onClick={() => {
-            window.location.href = '/contact';
+            window.location.assign('/contact');
           }}
             className="group bg-gradient-to-r from-orange-500 via-orange-600 to-pink-600 text-white px-12 py-5 rounded-2xl text-xl font-semibold transition-all duration-300 flex items-center gap-3 mx-auto shadow-xl hover:shadow-orange-500/25 backdrop-blur-sm"
             whileHover={{ 

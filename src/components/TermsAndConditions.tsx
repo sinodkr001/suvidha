@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { useScrollToTop } from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion';
-import { Sparkles, Zap, FileText, Shield, Clock, Users, CreditCard, Database, Server, Copyright, AlertTriangle, Scale, Mail } from 'lucide-react';
+import { Sparkles, Zap, FileText, Shield, Clock, Users, CreditCard, Server, Copyright, AlertTriangle, Scale, Mail } from 'lucide-react';
 
 const TermsAndConditions = () => {
   const [activeSection, setActiveSection] = useState('acceptance');
   
   useScrollToTop();
 
-  const sections = [
+  const sections = useMemo(() => [
     { id: 'acceptance', title: '1. Acceptance of Terms', icon: FileText },
     { id: 'description', title: '2. Description of Service', icon: Server },
     { id: 'user-responsibilities', title: '3. User Responsibilities', icon: Users },
@@ -21,7 +21,7 @@ const TermsAndConditions = () => {
     { id: 'governing-law', title: '10. Governing Law', icon: Scale },
     { id: 'changes-terms', title: '11. Changes to Terms', icon: FileText },
     { id: 'contact-information', title: '12. Contact Information', icon: Mail }
-  ];
+  ], []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +43,7 @@ const TermsAndConditions = () => {
 
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+  }, [sections]);
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
