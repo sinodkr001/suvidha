@@ -157,7 +157,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="w-5 h-5 text-gray-400 mt-1 flex-shrink-0" />
                 <p className="text-gray-300 leading-relaxed">
-                  1559, 15th floor, Gaur City Mall Sector 18, Greater Noida Uttar Pradesh – 201301
+                  Plot No 53, 2nd Floor, Pandav Nagar, New Delhi, Delhi, India, 110092
                 </p>
               </div>
               

@@ -170,7 +170,7 @@ const ContactUs = () => {
                 {
                   icon: MapPin,
                   title: "Visit Us",
-                  content: "1559, 15th floor, Gaur City Mall<br />Sector 18, Greater Noida<br />Uttar Pradesh – 201301",
+                  content: "Plot No 53, 2nd Floor<br /> Pandav Nagar, New Delhi<br />Delhi, India – 110092",
                   link: null
                 },
                 {
