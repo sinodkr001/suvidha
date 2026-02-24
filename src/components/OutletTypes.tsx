@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Check, Sparkles, Zap, ArrowRight } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import Seo from './Seo';
 
 // Premium outlet type images
 const outletImages = {
@@ -535,6 +536,11 @@ const OutletTypes = () => {
 
   return (
     <div className="font-[Poppins]">
+      <Seo
+        title="Retail & Restaurant POS Software by Outlet Type | Suvidha POS"
+        description="Explore Suvidha POS solutions for QSR, cafe, bakery, bar, cloud kitchen, retail & more. Get outlet-specific POS features, billing, inventory, and reports—request a demo."
+        canonicalPath="/outlet-types"
+      />
       {/* Hero Banner */}
       <div className="relative h-[500px] w-full overflow-hidden">
         {/* Background Elements */}

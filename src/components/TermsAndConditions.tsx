@@ -2,6 +2,7 @@ import React, { useState, useEffect, useMemo } from 'react';
 import { useScrollToTop } from '../hooks/useScrollToTop';
 import { motion } from 'framer-motion';
 import { Sparkles, Zap, FileText, Shield, Clock, Users, CreditCard, Server, Copyright, AlertTriangle, Scale, Mail } from 'lucide-react';
+import Seo from './Seo';
 
 const TermsAndConditions = () => {
   const [activeSection, setActiveSection] = useState('acceptance');
@@ -54,6 +55,11 @@ const TermsAndConditions = () => {
 
   return (
     <div className="font-[Poppins] overflow-x-hidden">
+      <Seo
+        title="Terms & Conditions | Suvidha POS"
+        description="Read Suvidha POS terms and conditions for using our POS billing software and services, including user responsibilities, payments, data protection, and service availability."
+        canonicalPath="/terms"
+      />
       {/* Hero Banner */}
       <div className="relative h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-slate-900 to-black"></div>

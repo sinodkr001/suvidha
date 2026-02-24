@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Search, Phone, Mail, MessageCircle, Sparkles, Zap } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import Seo from './Seo';
 
 interface FAQItemProps {
   question: string;
@@ -141,6 +142,11 @@ const FAQ = () => {
 
   return (
     <div className="font-[Poppins]">
+      <Seo
+        title="Suvidha POS FAQ | POS Billing Software & GST Billing"
+        description="Answers to common questions about Suvidha POS billing software—GST billing, offline mode, devices, payments, security, reports, and 24/7 support."
+        canonicalPath="/faq"
+      />
       {/* Hero Banner */}
       <div className="relative h-[500px] w-full overflow-hidden">
         {/* Background Elements */}

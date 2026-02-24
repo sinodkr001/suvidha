@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import Seo from './components/Seo';
 import PosFeatures from './components/PosFeatures';
 import WhyChooseUs from './components/WhyChooseUs';
 import CoreFeatures from './components/CoreFeatures';
@@ -24,6 +25,11 @@ import ScrollToTop from './components/ScrollToTop';
 function HomePage() {
   return (
     <>
+      <Seo
+        title="POS Billing Software | Retail POS & GST Billing - Suvidha POS"
+        description="Suvidha POS is POS billing software for retail & restaurants with GST billing, inventory management, reports, and 24/7 support. Book a free demo today."
+        canonicalPath="/"
+      />
       <Hero />
       <PosFeatures />
       <WhyChooseUs />

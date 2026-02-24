@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Clock, Send, CheckCircle, Loader2, Sparkles, Zap } from 'lucide-react';
 import { motion } from 'framer-motion';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import Seo from './Seo';
 
 const ContactUs = () => {
   useScrollToTop();
@@ -48,6 +49,11 @@ const ContactUs = () => {
 
   return (
     <div className="font-[Poppins] overflow-x-hidden">
+      <Seo
+        title="Contact Suvidha POS | Book a Demo for POS Billing Software"
+        description="Contact Suvidha POS to book a demo of our POS billing software. Talk to our team for GST billing, retail POS, restaurant POS, pricing, and setup support."
+        canonicalPath="/contact"
+      />
       {/* Hero Banner */}
       <div className="relative h-[500px] w-full overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-slate-900 to-black"></div>

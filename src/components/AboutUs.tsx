@@ -5,6 +5,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Sparkles, Zap, ArrowRight, Users, Target, Award, Shield, Clock, CheckCircle } from 'lucide-react';
 import { useScrollToTop } from '../hooks/useScrollToTop';
+import Seo from './Seo';
 
 const AboutUs = () => {
   // Ensure page scrolls to top when component mounts  
@@ -12,6 +13,11 @@ const AboutUs = () => {
   
   return (
     <div className="font-[Poppins]">
+      <Seo
+        title="About Suvidha POS | POS Billing Software for Retail & Restaurants"
+        description="Learn about Suvidha POS—POS billing software with GST billing, inventory management, and reporting for retail and restaurant businesses. Explore our mission, support, and why businesses choose us."
+        canonicalPath="/about"
+      />
     {/* Hero Banner */}
     <div className="relative h-[500px] w-full overflow-hidden">
         {/* Background Elements */}
